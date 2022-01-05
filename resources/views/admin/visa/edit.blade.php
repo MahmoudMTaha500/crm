@@ -10,48 +10,45 @@
     <h3 class="text-center title-2">Edit  Student</h3>
     </div>
     <hr>
-    <form action="{{route('student.update',$student->id)}}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+    <form action="{{route('visa.update',$visa->id)}}" method="post" novalidate="novalidate" enctype="multipart/form-data">
         @csrf
        @method('put')
        
-      
-       
-       <div class="row">
-        <div class="col-4">
-          <div class="form-group">
-            <label for="" class="control-label mb-1"> Name:</label>
-            <input  name="name" type="text" class="form-control"  required value="{{$student->name}}" placeholder="type your  Name">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group">
+              <label for="" class="control-label mb-1"> Name:</label>
+              <input  name="name" type="text" class="form-control"  value="{{$visa->student->name}}" placeholder="type your  Name">
+              </div>
+          </div>
+          <div class="col-4">
+            <div class="form-group">
+              <label for="cc-payment" class="control-label mb-1">Email:</label>
+              <input  name="email" type="email" class="form-control"  value="{{$visa->student->email}}" placeholder="type your  Email">
             </div>
-        </div>
-        <div class="col-4">
-          <div class="form-group">
-            <label for="cc-payment" class="control-label mb-1">Email:</label>
-            <input  name="email" type="email" class="form-control"  required  value="{{$student->email}}" placeholder="type your  Email">
-       
-            </div> 
+              </div> 
+          <div class="col-4">
+            <div class="form-group">
+              <label for="cc-payment" class="control-label mb-1">Nationality:</label>
+              <input  name="nationality" type="email" class="form-control"  value="{{$visa->student->nationality}}" placeholder="type your  nationality">
+         
+              </div> 
 
-        </div>   
-         <div class="col-4">
-          <div class="form-group">
-            <label for="cc-payment" class="control-label mb-1">Nationality:</label>
-            <input  name="nationality" type="text" class="form-control"  required  value="{{$student->nationality}}" placeholder="type your  Nationality">
-       
-            </div> 
-
+          </div>
         </div>
-     
-             </div>
+       
+               
                <div class="row">
                 <div class="col-6">
                   <div class="form-group">
                     <label for="" class="control-label mb-1"> Phone:</label>
-                    <input  name="phone" type="text" class="form-control"  value="{{$student->phone}}" placeholder="type your Phone">
+                    <input  name="phone" type="text" class="form-control"  value="{{$visa->student->phone}}" placeholder="type your Phone">
                     </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
                     <label for="cc-payment" class="control-label mb-1">Address :</label>
-                    <input  name="address" type="text" class="form-control"  value="{{$student->address}}" placeholder="type your Address">
+                    <input  name="address" type="text" class="form-control"  value="{{$visa->student->address}}" placeholder="type your Address">
                  
                     </div> 
       
@@ -84,17 +81,31 @@
                               </div>
              
                           </div>
+                          <div class="row">
+                            <div class="col-6">
+                            <div class="form-group">
+                            <label for="" class="control-label mb-1"> Status:</label>
+                            <select class="form-control "  name="status" id="">
+                            <option value="">Please Choose Place</option>
+                            <option @if($visa->status==0) selected @endif value="0">  New</option>
+                            <option @if($visa->status==1) selected @endif value="1"> Inprogress </option>
+                            <option @if($visa->status==2) selected @endif value="2"> Done </option>
+  
+  
+                            </select>
+                            </div>
+                            </div>
+                                <div class="col-6">
+                                <div class="form-group">
+                                <label for="" class="control-label mb-1"> Other:</label>
+                                <textarea class="form-control" name="other" id="" cols="10" rows="3">{{$visa->other}}</textarea>
+                                </div>
+                                </div>
+  
+                        </div>
+        </div>
                   
-                     <div class="row">
-                      <div class="col-1">
-                        <div class="form-group">
-                          <label for="" class="control-label mb-1"> To Visa:</label>
-                          <input  name="to_visa" type="checkbox"    class="form-control"   @if($student->to_visa == 1) checked @endif  value="1" placeholder="type your Phone">
-                          </div>
-                      </div>
-                      
-                   
-                           </div>
+                  
 
 
 

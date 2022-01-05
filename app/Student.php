@@ -10,5 +10,8 @@ class Student extends Model
     protected $guarded=[];
 
 
- 
+    public function media(){
+        return  $this->belongsTo('App\Student_media','student_id','id');
+     }
+     
 }

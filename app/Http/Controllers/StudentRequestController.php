@@ -10,11 +10,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\StudentController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StudentRequest\StudentRequests;
+use App\Http\Requests\student\StudentsRequest;
 use App\Http\Requests\StudentRequest\ExcelSheetRequest;
 use Excel;
 use App\Exports\StudentRequestExport;
 use App\Exports\ExcelSheet;
 use App\Country;
+use App\Visa;
 class StudentRequestController extends Controller
 {
     /**
@@ -85,7 +87,7 @@ class StudentRequestController extends Controller
        $institutes = Place_of_study::where('type_id',1)->get();
        $universities = Place_of_study::where('type_id',2)->get();
        // dd($studentRequests);
-       return view('admin.students_requests.index',compact("studentRequests","countries",'institutes','universities','SalesMens'));
+       return view('admin.students_Requests.index',compact("studentRequests","countries",'institutes','universities','SalesMens'));
     }
 
     /**
@@ -99,7 +101,7 @@ class StudentRequestController extends Controller
         $institutes = Place_of_study::where('type_id',1)->get();
         $universities = Place_of_study::where('type_id',2)->get();
 
-    return view('admin.students_requests.create',compact("salsmens",'institutes','universities'));
+    return view('admin.students_Requests.create',compact("salsmens",'institutes','universities'));
         
     }
 
@@ -109,14 +111,14 @@ class StudentRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequests $request)
+    public function store(StudentsRequest $request)
     {
         // dd($request->all());
         $StudentController = new   StudentController();
-        $StudentController->store($request);
+        $StudentController->store( $request);
         
         $study_places =$request->study_place ;
-        // dd(   );
+        // dd(  $study_places  );
         foreach($study_places  as $study){
 
         StudentRequest::create([
@@ -127,6 +129,7 @@ class StudentRequestController extends Controller
             'creator_id'=>1 ,
         ]);
     }
+  
 
       Alert::success('Add Opreation', 'Student   request Added Successflly  ');
       return redirect()->route('student-request.index');
@@ -135,33 +138,7 @@ class StudentRequestController extends Controller
 
      public function All_Requests_In_Excel(){
         return Excel::download(new StudentRequestExport, 'StudentRequest.xlsx');
-        // $Requests_Data = StudentRequest::get();
-        // // dd($Requests_Data);
-        // $request_array[] = ['Name','Phone','E-mail','Address','Study Place','Study Place Type','Sales Men','Date'];
-        // foreach($Requests_Data as $request){
-        //     $request_array[] = [
-        //         'Name'=>$request->student->name,
-        //         'Phone'=>$request->student->phone,
-        //         'E-mail'=>$request->student->email,
-        //         'Address'=>$request->student->address,
-        //         'Study Place'=>$request->study_place->name,
-        //         'Study Place Type'=>$request->study_place->type->name,
-        //         'Sales Men'=>$request->salesman->name,
-        //         'Date'=>$request->created_at
-        //     ];
- 
-  
-        // }
-
-        // Excel::store("Request Data", function($excel) use ($request_array){
-
-        //  $excel->setTitle('Request Data');
-        //  $excel->sheet("Request Data", function($sheet) use ($request_array) {
-        //  $sheet->fromArray($request_array,null,'A1',false ,false);
-        //  }) ;
-        // })->download('xlsx');
-
-//    return back();
+      
      }
 
 public function Requests_In_Excel(ExcelSheetRequest $request){
@@ -194,7 +171,7 @@ public function Requests_In_Excel(ExcelSheetRequest $request){
         $institutes = Place_of_study::where('type_id',1)->get();
         $universities = Place_of_study::where('type_id',2)->get();
 
-    return view('admin.students_requests.edit',compact("salsmens",'institutes','universities','studentRequest'));
+    return view('admin.students_Requests.edit',compact("salsmens",'institutes','universities','studentRequest'));
     }
 
     /**

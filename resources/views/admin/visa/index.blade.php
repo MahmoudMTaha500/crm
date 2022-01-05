@@ -16,7 +16,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{route('student.index')}}" method="GET">
+                            <form action="{{route('visa.index')}}" method="GET">
                              @csrf 
                             <input type="hidden" name="filter" value="1">
                          
@@ -80,7 +80,7 @@
                                     <th>Email</th>
                                     <th>Address</th>
                                     <th>Nationality</th>
-
+                                    <th>Status</th>
                                     
 
                                     <th>Creator</th>
@@ -88,34 +88,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($students as $student)
+                                @foreach($visas as $visa)
                                 <tr>
-                                    <td>{{$student->id}}</td>
-                                    <td>{{$student->name}}</td>
-                                    <td>{{$student->phone}}</td>
-                                    <td>{{$student->email}}</td>
-                                    <td>{{$student->address}}</td>
-                                    <td>{{$student->nationality}}</td>
+                                    <td>{{$visa->id}}</td>
+                                    <td>{{$visa->student->name}}</td>
+                                    <td>{{$visa->student->phone}}</td>
+                                    <td>{{$visa->student->email}}</td>
+                                    <td>{{$visa->student->address}}</td>
+                                    <td>{{$visa->student->nationality}}</td>
+                                    <td>
+                                        @if($visa->status==0) 
+                                        New
+                                        @elseif($visa->status==1)
+                                        Inprogress
+                                        @elseif($visa->status==2)
+                                        Done
+                                        @endif
 
+                                    </td>
                                   
 
                                     <td>Admin</td>
                                   <td>
                                     <div class="table-data-feature">
                                        
-                                        <a href="{{route('student.edit',$student->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <a href="{{route('visa.edit',$visa->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
-                                        <a href="{{route('student.show',$student->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit" target="_blank">
+                                        <a href="{{route('student.show',$visa->student_id)}}" class="item" data-toggle="tooltip" data-placement="top" title="show" target="_blank">
                                             <i class="zmdi zmdi-eye"></i>
                                         </a>
-                                        <form action="{{route('student.destroy', $student->id)}}" method="POST">
+                                        <form action="{{route('visa.destroy', $visa->id)}}" method="POST">
                                             @csrf
                                             @method('delete')
 
 
                                         <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
-                                        onclick="return confirm('Are u Sure For Delete This student')"
+                                        onclick="return confirm('Are u Sure For Delete This visa')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
@@ -131,7 +140,7 @@
                         </table>
                     </div>
                 </div>
-                {{$students->appends(request()->input())->links()}}
+                {{$visas->appends(request()->input())->links()}}
 
             </div>
       

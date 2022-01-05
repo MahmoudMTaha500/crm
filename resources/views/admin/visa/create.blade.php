@@ -10,37 +10,37 @@
     <h3 class="text-center title-2">Add New Student</h3>
     </div>
     <hr>
-    <form action="{{route('student.store')}}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+    <form action="{{route('visa.store')}}" method="post" novalidate="novalidate" enctype="multipart/form-data">
         @csrf
       @include('admin.includes.errors')
 
        
        
-        <div class="row">
-          <div class="col-4">
-            <div class="form-group">
-              <label for="" class="control-label mb-1"> Name:</label>
-              <input  name="name" type="text" class="form-control"  required value="" placeholder="type your  Name">
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group">
-              <label for="cc-payment" class="control-label mb-1">Email:</label>
-              <input  name="email" type="email" class="form-control"  required  value="" placeholder="type your  Email">
-         
-              </div> 
-
-          </div>   
-           <div class="col-4">
-            <div class="form-group">
-              <label for="cc-payment" class="control-label mb-1">Nationality:</label>
-              <input  name="nationality" type="text" class="form-control"  required  value="" placeholder="type your  Nationality">
-         
-              </div> 
-
-          </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="" class="control-label mb-1"> Name:</label>
+            <input  name="name" type="text" class="form-control"  required value="" placeholder="type your  Name">
+            </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="cc-payment" class="control-label mb-1">Email:</label>
+            <input  name="email" type="email" class="form-control"  required  value="" placeholder="type your  Email">
        
-               </div>
+            </div> 
+
+        </div>   
+         <div class="col-4">
+          <div class="form-group">
+            <label for="cc-payment" class="control-label mb-1">Nationality:</label>
+            <input  name="nationality" type="text" class="form-control"  required  value="" placeholder="type your  Nationality">
+       
+            </div> 
+
+        </div>
+     
+             </div>
                <div class="row">
                 <div class="col-6">
                   <div class="form-group">
@@ -85,15 +85,29 @@
                       
 
                      <div class="row">
-                      <div class="col-1">
+                      <div class="col-6">
                         <div class="form-group">
-                          <label for="" class="control-label mb-1"> To Visa:</label>
-                          <input  name="to_visa" type="checkbox"    class="form-control"  value="1" >
+                          <label for="" class="control-label mb-1"> Status:</label>
+                          <select class="form-control "  name="status" id="">
+                            <option value="">Please Choose Place</option>
+                            <option value="0">  New</option>
+                            <option value="1"> Inprogress </option>
+                            <option value="2"> Done </option>
+                           
+  
+                          </select>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="" class="control-label mb-1"> Other:</label>
+                               <textarea class="form-control" name="other" id="" cols="10" rows="3"></textarea>
                           </div>
                       </div>
                       
+                      
                    
-                           </div>
+                  </div>
 
 
 

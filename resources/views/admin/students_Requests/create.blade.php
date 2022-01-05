@@ -15,18 +15,25 @@
 
         @csrf
        
-       
         <div class="row">
-          <div class="col-6">
+          <div class="col-4">
             <div class="form-group">
               <label for="" class="control-label mb-1"> Name:</label>
               <input  name="name" type="text" class="form-control"  required value="" placeholder="type your  Name">
               </div>
           </div>
-          <div class="col-6">
+          <div class="col-4">
             <div class="form-group">
               <label for="cc-payment" class="control-label mb-1">Email:</label>
               <input  name="email" type="email" class="form-control"  required  value="" placeholder="type your  Email">
+         
+              </div> 
+
+          </div>   
+           <div class="col-4">
+            <div class="form-group">
+              <label for="cc-payment" class="control-label mb-1">Nationality:</label>
+              <input  name="nationality" type="text" class="form-control"  required  value="" placeholder="type your  Nationality">
          
               </div> 
 

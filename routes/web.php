@@ -45,3 +45,4 @@ Route::resource('place', PlaceOfStudyController::class);
 Route::resource('student', StudentController::class);
 Route::resource('salesman', SalesManController::class);
 Route::resource('student-request', StudentRequestController::class);
+Route::resource('visa',VisaController::class);

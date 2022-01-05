@@ -123,6 +123,24 @@
                       
                     </ul>
                 </li>
+
+                <li class=" @if(Route::is('visa.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fa fa-cc-visa"></i>Visa</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('visa.index') )  active @endif ">
+                            <a href="{{route('visa.index')}}"> All Visa</a>
+                        </li>
+                        <li class=" @if(Route::is('visa.create') )  active @endif ">
+                            <a href="{{route('visa.create')}}">Add Visa</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
                 <li>
                     <a href="chart.html">
                         <i class="fas fa-chart-bar"></i>Charts</a>

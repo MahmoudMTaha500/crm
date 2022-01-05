@@ -8,8 +8,9 @@ use App\Student_media;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use App\Http\Requests\student\StudentRequest;
-
+use App\Http\Requests\student\StudentsRequest;
+use App\Http\Controllers\VisaController;
+use App\Visa;
 class StudentController extends Controller
 {
     public $student_id;
@@ -74,7 +75,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequest $request)
+    public function store(StudentsRequest $request)
     {
  
     //   dd($request->all());
@@ -84,10 +85,13 @@ class StudentController extends Controller
            'email'=>$request->email, 
            'phone'=>$request->phone, 
            'address'=>$request->address, 
-           'to_visa'=>$request->to_visa, 
+           'nationality'=>$request->nationality, 
            'creator_id'=>1, 
         ]);
+
+
         $this->student_id = $student->id;
+if($request->file){
 
         for($x=0;  $x < count($request->name_of_file)   ;$x++)
         {
@@ -109,6 +113,18 @@ class StudentController extends Controller
               ]);
   
         }
+
+}
+
+if($request->to_visa){
+    Visa::create([
+        'student_id'=>$student->id ,
+    // "status" => $request->status,
+
+        "creator_id" => 1,
+    ]);
+}
+
 
         Alert::success('Add  Opration','Student Added Succssfully');
         return redirect()->route('student.index');
@@ -158,8 +174,9 @@ class StudentController extends Controller
         $student->email=$request->email;
         $student->phone=$request->phone;
         $student->address=$request->address;
-        $student->to_visa=$request->to_visa;
+        $student->nationality=$request->nationality;
         $student->save();
+if($request->file){
 
         for($x=0;  $x < count($request->name_of_file)   ;$x++)
         {
@@ -181,6 +198,20 @@ class StudentController extends Controller
               ]);
   
         }
+
+    
+}
+
+if($request->to_visa){
+    Visa::create([
+        'student_id'=>$student->id ,
+    // "status" => $request->status,
+
+        "creator_id" => 1,
+    ]);
+} else{
+      Visa::where('student_id',$student->id)->delete();
+}
         Alert::success('Update Opreation ','Student Updeted Successfully');
         return redirect()->route('student.index');
     }

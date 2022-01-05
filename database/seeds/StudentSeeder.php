@@ -13,16 +13,15 @@ class StudentSeeder extends Seeder
     public function run()
     {
         for ($x=1; $x <= 70 ; $x++) { 
-            $city_id = rand(1,30);
-            $country_id = City::where('id' , $city_id)->get('country_id')[0]->country_id;
+          
             Student::create([
                 "name" => ' studen Name'.$x,
                 "phone" => '0123456'.$x,
                 "email" => 'student@app.com'.$x,
+                "nationality" => 'nationality'.$x,
                 "address" => 'Student Address '.$x,
                
                 "creator_id" => 1,
-                "to_visa" => 1,
             ]);
         }
     }
