@@ -8,22 +8,9 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="active has-sub">
-                    <a class="js-arrow" href="#">
+                    <a class=" @if(url()->current()== '/' )  active @endif" href="{{url('/')}}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="index.html">Dashboard 1</a>
-                        </li>
-                        <li>
-                            <a href="index2.html">Dashboard 2</a>
-                        </li>
-                        <li>
-                            <a href="index3.html">Dashboard 3</a>
-                        </li>
-                        <li>
-                            <a href="index4.html">Dashboard 4</a>
-                        </li>
-                    </ul>
+                  
                 </li>  
                 <li class=" @if(Route::is('country.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
