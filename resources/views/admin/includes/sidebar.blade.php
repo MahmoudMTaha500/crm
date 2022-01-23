@@ -7,11 +7,12 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="active has-sub">
-                    <a class=" @if(url()->current()== '/' )  active @endif" href="{{url('/')}}">
+                <li class=" @if(Route::is('home') )  active @endif has-sub">
+                    <a class="" href="{{route('home')}}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                   
                 </li>  
+@if(auth()->user()->hasRole('admission') || auth()->user()->hasRole('admin'))
                 <li class=" @if(Route::is('country.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
                         <i class="fas fa-flag"></i>Countries</a>
@@ -76,23 +77,6 @@
                       
                     </ul>
                 </li>
-                <li class=" @if(Route::is('salesman.*') )  active @endif has-sub">
-                    <a class="js-arrow  " href="#">
-                        <i class="fas fa-male"></i>Salesmans</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li class=" @if(Route::is('salesman.index') )  active @endif ">
-                            <a href="{{route('salesman.index')}}"> All Salesmans</a>
-                        </li>
-                        <li class=" @if(Route::is('salesman.create') )  active @endif ">
-                            <a href="{{route('salesman.create')}}">Add Salesman</a>
-                        </li>
-                        
-                        <li>
-                            <a href="index3.html">archive</a>
-                        </li>
-                      
-                    </ul>
-                </li>
                 <li class=" @if(Route::is('student-request.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
                         <i class="fas  fa-paper-plane "></i>Student Requests</a>
@@ -110,7 +94,45 @@
                       
                     </ul>
                 </li>
-
+                @endif
+                @if(auth()->user()->hasRole('admin'))
+                <li class=" @if(Route::is('salesman.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas fa-male"></i>Salesmans</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('salesman.index') )  active @endif ">
+                            <a href="{{route('salesman.index')}}"> All Salesmans</a>
+                        </li>
+                        <li class=" @if(Route::is('salesman.create') )  active @endif ">
+                            <a href="{{route('salesman.create')}}">Add Salesman</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                <li class=" @if(Route::is('employee.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas fa-male"></i>Employees</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('employee.index') )  active @endif ">
+                            <a href="{{route('employee.index')}}"> All Employees</a>
+                        </li>
+                        <li class=" @if(Route::is('employee.create') )  active @endif ">
+                            <a href="{{route('employee.create')}}">Add Employee</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+            
+               @endif
+               @if(auth()->user()->hasRole('visa')||auth()->user()->hasRole('admin'))
                 <li class=" @if(Route::is('visa.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
                         <i class="fa fa-cc-visa"></i>Visa</a>
@@ -128,7 +150,29 @@
                       
                     </ul>
                 </li>
-                <li>
+                @endif
+
+                @if(auth()->user()->hasRole('visa'))
+
+                <li class=" @if(Route::is('student.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas fa-users"></i>Students</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('student.index') )  active @endif ">
+                            <a href="{{route('student.index')}}"> All Students</a>
+                        </li>
+                        <li class=" @if(Route::is('student.create') )  active @endif ">
+                            <a href="{{route('student.create')}}">Add Student</a>
+                        </li>
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+@endif
+
+                {{-- <li>
                     <a href="chart.html">
                         <i class="fas fa-chart-bar"></i>Charts</a>
                 </li>
@@ -201,7 +245,7 @@
                             <a href="typo.html">Typography</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </nav>
     </div>

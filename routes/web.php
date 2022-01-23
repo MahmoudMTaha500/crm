@@ -13,15 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware'=>'auth'], function(){
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashborad');
-});
+// Route::get('/admin', function () {
+//     return view('admin.dashborad');
+// });
 
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/logine',function() {
+//     return view ('admin.login');
+// });
 
+Route::get('log-out',"EmployeesController@getLogout")->name('log-out');
 
 //  ////////////////////////////Start Ajax Routes/////////////////////////////////////////////
 Route::get('/place/getcities',"PlaceOfStudyController@getCities");
@@ -46,3 +55,8 @@ Route::resource('student', StudentController::class);
 Route::resource('salesman', SalesManController::class);
 Route::resource('student-request', StudentRequestController::class);
 Route::resource('visa',VisaController::class);
+Route::resource('employee',EmployeesController::class);
+
+});
+
+Auth::routes();
