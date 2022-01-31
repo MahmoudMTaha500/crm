@@ -13,90 +13,66 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/tests', function () {
+    dd(auth()->user()->name);
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['role:admin']], function(){
 
-Route::get('/', function () {
-    return view('welcome');
+
+    //  ////////////////////////////Start Ajax Routes/////////////////////////////////////////////
+    // Route::get('/place/getcities', "PlaceOfStudyController@getCities");
+    //  ////////////////////////////End Ajax Routes//////////////////////////////////////////////
+    //  ////////////////////////////Start normal Routes/////////////////////////////////////////////
+    // Route::get('student/media/delete/{id}', "StudentController@deleteMedia");
+    // Route::get('student-request/allrequests/download', 'StudentRequestController@All_Requests_In_Excel')->name('student-request.excel');
+    // Route::get('student-request/request/download', 'StudentRequestController@Requests_In_Excel')->name('student-request.request-excel');
+    //  ////////////////////////////Start  normalRoutes/////////////////////////////////////////////
+    // Route::resource('country', CountryController::class);
+    // Route::resource('city', CityController::class);
+    // Route::resource('place', PlaceOfStudyController::class);
+    // Route::resource('student', StudentController::class);
+    // Route::resource('student-request', StudentRequestController::class);
+    Route::resource('salesman', SalesManController::class);
+    // Route::resource('visa', VisaController::class);
+    Route::resource('employee', EmployeesController::class);
 });
-;
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('log-out',"EmployeesController@getLogout")->name('log-out');
-
-//  ////////////////////////////Start Ajax Routes/////////////////////////////////////////////
-Route::get('/place/getcities',"PlaceOfStudyController@getCities");
-//  ////////////////////////////End Ajax Routes//////////////////////////////////////////////
-//  ////////////////////////////Start normal Routes/////////////////////////////////////////////
-Route::get('student/media/delete/{id}',"StudentController@deleteMedia");
-Route::get('student-request/allrequests/download', 'StudentRequestController@All_Requests_In_Excel')->name('student-request.excel');
-Route::get('student-request/request/download', 'StudentRequestController@Requests_In_Excel')->name('student-request.request-excel');
-//  ////////////////////////////Start  normalRoutes/////////////////////////////////////////////
-Route::resource('country', CountryController::class);
-Route::resource('city', CityController::class);
-Route::resource('place', PlaceOfStudyController::class);
-Route::resource('student', StudentController::class);
-Route::resource('student-request', StudentRequestController::class);
-
-Route::resource('salesman', SalesManController::class);
-
-Route::resource('visa',VisaController::class);
-
-    Route::resource('employee',EmployeesController::class);
-
-
-
-});
     //  ////////////////////////////Start  admission/////////////////////////////////////////////
 
-Route::group(['middleware' => ['role:admission']], function(){
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('log-out',"EmployeesController@getLogout")->name('log-out');
+Route::group(['middleware' => ['role:admission|admin']], function(){
     Route::get('/place/getcities',"PlaceOfStudyController@getCities");
     Route::get('student/media/delete/{id}',"StudentController@deleteMedia");
     Route::get('student-request/allrequests/download', 'StudentRequestController@All_Requests_In_Excel')->name('student-request.excel');
     Route::get('student-request/request/download', 'StudentRequestController@Requests_In_Excel')->name('student-request.request-excel');
-    
-    
     Route::resource('country', CountryController::class);
     Route::resource('city', CityController::class);
     Route::resource('place', PlaceOfStudyController::class);
-    Route::resource('student', StudentController::class);
+   
     Route::resource('student-request', StudentRequestController::class);
 });
     //  ////////////////////////////End  admission/////////////////////////////////////////////
-
     //  ////////////////////////////Start  visa/////////////////////////////////////////////
 
-Route::group(['middleware' => ['role:visa']], function(){
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('log-out',"EmployeesController@getLogout")->name('log-out');
-
+Route::group(['middleware' => ['role:visa|admin']], function(){
 Route::resource('visa',VisaController::class);
+});
 
-  
+Route::group(['middleware' => ['role:visa|admin|admission']], function(){
     Route::resource('student', StudentController::class);
 });
+
     //  ////////////////////////////End  visa/////////////////////////////////////////////
 
     //  ////////////////////////////Start  Finance/////////////////////////////////////////////
 
-Route::group(['middleware' => ['role:finance']], function(){
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('log-out',"EmployeesController@getLogout")->name('log-out');
-
-
+Route::group(['middleware' => ['role:finance|admin']], function(){
   
-});
+ });
     //  ////////////////////////////End  Finance/////////////////////////////////////////////
 
+    Route::get('log-out',"EmployeesController@getLogout")->name('log-out');
 
-Auth::routes();
+    Auth::routes();
