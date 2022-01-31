@@ -4,74 +4,68 @@
     <div class="row">
     <div class="col-lg-12">
     <div class="card">
-    <div class="card-header">Places Of Study Section </div>
+    <div class="card-header">Employees Section </div>
     <div class="card-body">
     <div class="card-title">
-    <h3 class="text-center title-2">Add New Place</h3>
+    <h3 class="text-center title-2">Edit Employee</h3>
     </div>
     <hr>
-    <form action="{{route('place.update',$place->id)}}" method="post" novalidate="novalidate">
-        @csrf
-        @method('put')
-       
-       
-        <div class="row">
-          <div class="col-6">
-            <div class="form-group">
-              <label for="" class="control-label mb-1">Place Name:</label>
-              <input  name="name" type="text" class="form-control"  value="{{$place->name}}" placeholder="type your place name">
-              </div>
-          </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label for="cc-payment" class="control-label mb-1">Place Type:</label>
-            <select name="type_id" id="" class="form-control">
-              <option value=""> Chosse Type </option>
+    <form action="{{route('employee.update', $emp->id)}}" method="post" novalidate="novalidate">
+      @csrf
+      @method('put')
+    @include('admin.includes.errors')
+     
+     <input type="hidden" name="id" id="" value="{{$emp->id}}">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="" class="control-label mb-1"> Name:</label>
+            <input  name="name" type="text" class="form-control" placeholder="type your place name" value="{{$emp->name}}">
+            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="cc-payment" class="control-label mb-1">ٌRole  Type:</label>
+          <select name="role" id=""  disabled class="form-control">
+            <option value=""> Chosse Type </option>
+                <option @if($emp->roles[0]->name =='admission') selected @endif value="admission"> Admission </option>
+                <option   @if($emp->roles[0]->name =='visa') selected @endif value="visa"> Visa </option>
+                <option   @if($emp->roles[0]->name =='finance') selected @endif value="finance"> Finance </option>
+          </select>
+            </div> 
 
-                  <option @if($place->type_id == 1) selected @endif value="1"> Institute </option>
-                  <option  @if($place->type_id == 2) selected @endif value="2"> University </option>
-            </select>
-              </div> 
+        </div>
+     
+             </div>
 
-          </div>
-       
-               </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="cc-payment" class="control-label mb-1">Email:</label>
+            <input  name="email" type="email" class="form-control" value="{{$emp->email}}"placeholder="type your place name">
 
-        <div class="row">
-          <div class="col-6">
-            <div class="form-group">
-              <label for="cc-payment" class="control-label mb-1">Countries:</label>
-            <select name="country_id" id="country_id"  class="form-control">
-              <option value=""> Chosse Country </option>
+            </div> 
 
-                  @foreach($countries as $country)
-                    <option   @if($place->country_id == $country->id) selected @endif  value="{{$country->id}}">{{$country->name}}</option>               
-                  @endforeach
-            </select>
-              </div> 
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="cc-payment" class="control-label mb-1">Password:</label>
+            <input  name="password" type="password" class="form-control"  value="" placeholder="type your place name">
 
-          </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label for="cc-payment" class="control-label mb-1">Cities:</label>
-            <select name="city_id" id="city_id" class="form-control">
-              <option value=""> Chosse City </option>
+            </div> 
+        </div>
+     
+             </div>
 
-            </select>
-              </div> 
-          </div>
-       
-               </div>
-
-            
-        
-            
-           
+          
+      
+          
+         
 
 
-    <div>
+  <div>
     <button id="button" type="submit" class="btn btn-lg btn-info btn-block">
-    Save
+    Edit
     </button>
     </div>
     </form>

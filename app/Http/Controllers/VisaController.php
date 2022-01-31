@@ -55,9 +55,9 @@ class VisaController extends Controller
                 } 
        
     
-                $visas=   $visas->paginate(10);
+                $visas=   $visas->orderBy('id', 'DESC')->paginate(10);
            } else{
-            $visas = Visa::with('student.media')->paginate(10);
+            $visas = Visa::with('student.media')->orderBy('id', 'DESC')->paginate(10);
          
         
            }

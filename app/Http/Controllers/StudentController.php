@@ -48,9 +48,9 @@ class StudentController extends Controller
             } 
    
 
-            $students=   $students->paginate(10);
+            $students=   $students->orderBy('id', 'DESC')->paginate(10);
        } else{
-        $students = Student::paginate(10);
+        $students = Student::orderBy('id', 'DESC')->paginate(10);
      
     
        }

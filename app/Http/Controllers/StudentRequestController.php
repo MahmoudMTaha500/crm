@@ -72,13 +72,13 @@ class StudentRequestController extends Controller
             $studentRequests =      $studentRequests->where('created_at', '<=', "$toDate" );
           }
 
-            $studentRequests=   $studentRequests->with('study_place')->paginate(10);
+            $studentRequests=   $studentRequests->with('study_place')->orderBy('id', 'DESC')->paginate(10);
            
             // dd( $studentRequests);
 
 
        } else{
-        $studentRequests = StudentRequest::paginate(10);
+        $studentRequests = StudentRequest::orderBy('id', 'DESC')->paginate(10);
      
     
        }

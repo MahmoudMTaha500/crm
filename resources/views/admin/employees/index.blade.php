@@ -90,7 +90,7 @@
 
 
                                         <button href="" class="item" data-toggle="tooltip" data-userment="top" title="Delete" 
-                                        onclick="return confirm('Are u Sure For Delete This user')"
+                                        onclick="return confirm('Are u Sure For Delete This Employee')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>

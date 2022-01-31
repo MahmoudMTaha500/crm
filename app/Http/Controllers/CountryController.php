@@ -29,13 +29,13 @@ class CountryController extends Controller
                 }
               
     
-                $countries=   $countries->paginate(10);
+                $countries=   $countries->orderBy('id', 'DESC')->paginate(10);
                
                 // dd( $studentRequests);
     
     
            } else{
-            $countries = Country::paginate(10);
+            $countries = Country::orderBy('id', 'DESC')->paginate(10);
 
          
         

@@ -16,7 +16,7 @@ class SalesManController extends Controller
      */
     public function index()
     {
-        $salesmans = SalesMan::paginate(10);
+        $salesmans = SalesMan::orderBy('id', 'DESC')->paginate(10);
         return view('admin.salesmans.index',compact('salesmans'));
     }
 

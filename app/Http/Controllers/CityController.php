@@ -37,13 +37,13 @@ class CityController extends Controller
                 }
               
     
-                $cities=   $cities->paginate(10);
+                $cities=   $cities->orderBy('id', 'DESC')->first()->paginate(10);
                
                 // dd( $studentRequests);
     
     
            } else{
-            $cities = City::paginate(10);
+            $cities = City::orderBy('id', 'DESC')->paginate(10);
 
 
          

@@ -45,9 +45,9 @@ class PlaceOfStudyController extends Controller
             } 
    
 
-            $Place_of_study=   $Place_of_study->paginate(10);
+            $Place_of_study=   $Place_of_study->orderBy('id', 'DESC')->paginate(10);
        } else{
-        $Place_of_study = Place_of_study::paginate(10);
+        $Place_of_study = Place_of_study::orderBy('id', 'DESC')->paginate(10);
      
     
        }

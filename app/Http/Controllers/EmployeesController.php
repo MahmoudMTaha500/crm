@@ -19,7 +19,7 @@ class EmployeesController extends Controller
     public function index()
     {
 
-        $admins = User::paginate(10);
+        $admins = User::orderBy('id', 'DESC')->paginate(10);
         return view("admin.employees.index",compact('admins'));
     }
 
@@ -56,7 +56,8 @@ class EmployeesController extends Controller
             // session()->flash('alert_message', ['message' => 'تم ارجاع المعهد بنجاح', 'icon' => 'success']);
             Alert::success('Add Opreation', 'ُEmployee Added Successfully ');
 
-            return back();
+            return redirect()->route('employee.index');
+
         
     }
 
@@ -68,7 +69,7 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -77,9 +78,12 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request ,$id)
     {
-        //
+        $emp  = User::find($id);
+        // dd($emp);
+        return view("admin.employees.edit",compact('emp'));
+        
     }
 
     /**
@@ -91,7 +95,15 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $emp  = User::find($id);
+        $emp->name = $request->name;
+        $emp->email = $request->email;
+        if($request->password){
+            $emp->password = $request->password;
+        }
+          $emp->save();
+          Alert::success('Edit Opreation', 'ُEmployee Updated Successfully ');
+          return redirect()->route('employee.index');
     }
 
     /**
@@ -102,7 +114,11 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $emp  = User::find($id);
+        $emp->delete();
+        Alert::error('Delete Opreation', 'ُEmployee Deleted Successfully ');
+          return redirect()->route('employee.index');
+        
     }
     public function getLogout()
 {
