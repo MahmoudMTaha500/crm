@@ -20,7 +20,7 @@ class CreatePlaceOfStudiesTable extends Migration
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->bigInteger('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->integer('creator_id');
+            $table->string('creator');
             $table->bigInteger('type_id');
             // $table->foreign('type_id')->references('id')->on('type_of_places')->onDelete('cascade');
             $table->timestamps();

@@ -15,7 +15,8 @@ class CitySeeder extends Seeder
             City::create([
                 "name" => 'London'.$x,
                 "country_id" => rand(1,10),
-                "creator_id" => 1,
+                "creator" =>"admin",
+
             ]);
         }
     }

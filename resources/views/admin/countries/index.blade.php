@@ -69,7 +69,8 @@
                                 <tr>
                                     <td>{{$country->id}}</td>
                                     <td>{{$country->name}}</td>
-                                    <td>Admin</td>
+                                    <td>{{$country->creator}}</td>
+                                    
                                   <td>
                                     <div class="table-data-feature">
                                        

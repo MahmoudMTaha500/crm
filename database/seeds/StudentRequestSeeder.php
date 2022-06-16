@@ -19,7 +19,8 @@ class StudentRequestSeeder extends Seeder
                 "status" => 0,
                 "salesman_id" => rand(1,10),
                
-                "creator_id" => 1,
+                "creator" =>"admin",
+
                 
             ]);
         }

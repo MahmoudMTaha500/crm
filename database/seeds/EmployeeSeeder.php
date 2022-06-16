@@ -59,6 +59,8 @@ Role::create(
             "name" =>"admin",
             "email" =>"admin@admin.com",
             "password" => bcrypt("123"),
+                "creator" => "admin",
+
             ]);
             $admin->attachRole('admin');
 

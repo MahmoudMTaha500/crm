@@ -22,7 +22,7 @@
                      
 						<div class="modal-body">
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Country:</label>
                                     <select name="country_id" id="country_id"  class="form-control">
@@ -34,9 +34,8 @@
                                       </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
+                           
+                                <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> City:</label>
                                     <select name="city_id" id="city_id" class="form-control">
@@ -47,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Universities:</label>
                                     <select class="form-control "      name="university" id="university_id">
@@ -60,9 +59,8 @@
                                       </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
+                            
+                                <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Institutes:</label>
                                     <select class="form-control "  name="institute" id="institute_id">
@@ -77,13 +75,26 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-6">
                                   <div class="form-group">
-                                    <label for="" class="control-label mb-1"> Owner:</label>
+                                    <label for="" class="control-label mb-1"> Sales Man:</label>
                                     <select class="form-control "  name="salesMan" id="salesMan_id">
-                                        <option value="">Please Choose Owner</option>
+                                        <option value="">Please Choose Sales Man</option>
                                         @foreach ($SalesMens as $SalesMan)
                                         <option value="{{$SalesMan->id}}">{{$SalesMan->name}}</option>
+                                            
+                                        @endforeach
+              
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="form-group">
+                                    <label for="" class="control-label mb-1"> Employees :</label>
+                                    <select class="form-control "  name="employee" id="">
+                                        <option value="">Please Choose Employees </option>
+                                        @foreach ($employees as $employee)
+                                        <option value="{{$employee->name}}">{{$employee->name}}</option>
                                             
                                         @endforeach
               
@@ -105,10 +116,32 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="row">
-                                <div class="col-12">
+                              <div class="col-6">
+                                <div class="form-group">
+                                  <label for="" class="control-label mb-1"> E-Mail:</label>
+                                  <input type="email" name="email" class="form-control" placeholder="type E-Mail">
+                                  </div>
+                              </div>
+                          
+                              <div class="col-6">
+                                <div class="form-group">
+                                  <label for="" class="control-label mb-1"> Phone:</label>
+                                  <input type="number" name="phone" class="form-control" placeholder="type Phone">
+
+                                  </div>
+                              </div>
+                          </div>
+                         
+                          <div class="row">
+                              <div class="col-6">
+                                <div class="form-group">
+                                  <label for="" class="control-label mb-1"> Name:</label>
+                                <input   class="form-control" type="text" name="name" placeholder="Type Name Of Place ">
+                                  </div>
+                              </div>
+                          
+                                <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Status:</label>
                                     <select class="form-control "  name="status" id="">
@@ -199,9 +232,10 @@
                                     <td>{{$request->study_place->name}}</td>
                                     <td>{{$request->study_place->type->name}}</td>
                                     <td>{{$request->salesman->name}}</td>
+                                    <td>{{$request->creator}}</td>
                                   
 
-                                    <td>Admin</td>
+                                   
                                     <td>{{$request->created_at}}</td>
 
                                   <td>
@@ -210,9 +244,9 @@
                                         {{-- <a href="{{route('student-request.edit',$request->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a> --}}
-                                        {{-- <a href="{{route('request.show',$request->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit" target="_blank"> --}}
-                                            {{-- <i class="zmdi zmdi-eye"></i> --}}
-                                        {{-- </a> --}}
+                                        <a href="{{route('student.show',$request->student_id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit" target="_blank">
+                                          <i class="zmdi zmdi-eye"></i>
+                                      </a>
                                         <form action="{{route('student-request.destroy', $request->id)}}" method="POST">
                                             @csrf
                                             @method('delete')
@@ -235,7 +269,7 @@
                              @if($studentRequests->total() ==0) 
                              <tr> 
                                  <td colspan="12">
-                                Obbs! no Data Found
+                                Opps! no Data Found
                             </td> 
                            </tr>
                              @endif

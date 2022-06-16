@@ -76,7 +76,7 @@
                         <div class="col-6">
                           <div class="form-group">
                           <label for="" class="control-label mb-1"> Universities Places:</label>
-                            <select class="form-control selectpicker"  style="border: 1px #888 solid"   multiple data-live-search="true" name="study_place[]" id="">
+                            <select class="form-control selectpicker"  style="border: 1px #888 solid" onchange="personnelChange(this, event)"  multiple data-live-search="true" name="study_place[]" id="university_id">
                               <option value="">Please Choose Place</option>
                               @foreach ($universities as $university)
                               <option value="{{$university->id}}">{{$university->name}}</option>
@@ -84,6 +84,42 @@
                               @endforeach
     
                             </select>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row"  > 
+                      <div class="col-4" style='display:none' id='col_agency'>
+                        <div class="form-group">
+                        <label for="" class="control-label mb-1"> Agencies :</label>
+                          <select class="form-control "  style="border: 1px #888 solid"  onchange="agency_change(this,event)"  name="agent" id="agent">
+                            <option value="">Please Choose Place</option>
+                            @foreach ($agencies as $agent)
+                            <option value="{{$agent->id}}">{{$agent->name}}</option>
+                                
+                            @endforeach
+  ّ
+                          </select>
+                        </div>  
+                      </div>
+
+                        <div class="col-4" style='display:none' id="col_course">
+                          <div class="form-group">
+                          <label for="" class="control-label mb-1"> Course  :</label>
+                            <select class="form-control "  style="border: 1px #888 solid"  onchange="course_change(this,event)"  name="course" id="course_id">
+                              <option value="">Please Choose Place</option>
+                              <option value="Degree">Degree</option>
+                              <option value="Pathway">Pathway</option>
+                              <option value="Pre-sessional">Pre-sessional</option>
+                              <option value="Other">Other</option>
+                            
+    
+                            </select>
+                          </div>
+                      </div>
+                        <div class="col-4" style='display:none' id="col_note_course">
+                          <div class="form-group">
+                          <label for="" class="control-label mb-1">Note Courses :</label>
+                         <textarea class="form-control" name="note_course" id="" cols="10" rows="2">    </textarea>
                           </div>
                       </div>
                     </div>
@@ -202,6 +238,43 @@ function Elements(){
  
 
  $('.selectpicker').selectpicker();
+
+
+
+
+
+function personnelChange(ele, event) {
+   var val = $(ele).selectpicker('val');
+  //  alert(val);
+if(val){
+  $('#col_agency').css('display','');
+} if(val==''){
+  $('#col_agency').css('display','none');
+
+}
+}
+function  agency_change(ele , event){
+  var val = $(ele).val();
+  // alert(val);
+  if(val){
+  $('#col_course').css('display','');
+} if(val=='' || val==1){
+  $('#col_course').css('display','none');
+  $('#col_note_course').css('display','none');
+
+
+}
+}
+function  course_change(ele , event){
+  var val = $(ele).val();
+  // alert(val);
+  if(val){
+  $('#col_note_course').css('display','');
+} if(val=='' ){
+  $('#col_note_course').css('display','none');
+
+}
+}
 </script>
 
 @endsection

@@ -17,47 +17,105 @@
        
        
       <div class="row">
-        <div class="col-4">
-          <div class="form-group">
-            <label for="" class="control-label mb-1"> Name:</label>
-            <input  name="name" type="text" class="form-control"  required value="" placeholder="type your  Name">
-            </div>
-        </div>
-        <div class="col-4">
-          <div class="form-group">
-            <label for="cc-payment" class="control-label mb-1">Email:</label>
-            <input  name="email" type="email" class="form-control"  required  value="" placeholder="type your  Email">
        
-            </div> 
+          <div class="col-12">
+            <div class="form-group">
+            <label for="" class="control-label mb-1"> Students :</label>
+              <select  name="student" class="form-control selectpicker"    data-live-search="true" id="">
+              @foreach($students as  $student)
+                <option   value="{{$student->id}}">{{$student->name}}</option>
+                @endforeach
+              </select>
 
-        </div>   
-         <div class="col-4">
-          <div class="form-group">
-            <label for="cc-payment" class="control-label mb-1">Nationality:</label>
-            <input  name="nationality" type="text" class="form-control"  required  value="" placeholder="type your  Nationality">
-       
-            </div> 
+            </div>  
+          </div>
+      </div>
 
-        </div>
-     
-             </div>
-               <div class="row">
+          <div class="row">
                 <div class="col-6">
-                  <div class="form-group">
-                    <label for="" class="control-label mb-1"> Phone:</label>
-                    <input  name="phone" type="text" class="form-control" required   value="" placeholder="type your Phone">
-                    </div>
+                    <label for="cc-payment" class="control-label mb-1">Countries:</label>
+                    <select name="country_id" id="country_id"  class="form-control">
+                    <option value=""> Chosse Country </option>
+
+                    @foreach($countries as $country)
+                    <option  value="{{$country->id}}">{{$country->name}}</option>               
+                    @endforeach
+                    </select>
                 </div>
                 <div class="col-6">
-                  <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">Address :</label>
-                    <input  name="address" type="text" class="form-control" required  value="" placeholder="type your Address">
-                 
+                <div class="form-group">
+                    <label for="cc-payment" class="control-label mb-1">Date :</label>
+                    <input  name="date" type="date" class="form-control" required  value="" >
+                </div> 
+                </div>
+          </div>  
+          <div class="row">
+                <div class="col-6">
+                    <label for="cc-payment" class="control-label mb-1">Visa Type:</label>
+                    <select name="type" id=""  class="form-control">
+                    <option value=""> Chosse Visa Type </option>
+
+                    @foreach($types as $type)
+                    <option  value="{{$type->id}}">{{$type->name}}</option>               
+                    @endforeach
+                    </select>
+                </div>
+                <div class="col-6">
+                <div class="form-group">
+                    <label for="cc-payment" class="control-label mb-1">Fees :</label>
+                    <input  name="fees" type="number" class="form-control" required  value=""  placeholder="Enter The Amount Of Fees">
+                </div> 
+                </div>
+          </div>  
+          <div class="row">
+                <div class="col-6">
+                  <label for="cc-payment" class="control-label mb-1">ٍSalesMen :</label>
+                  <select class="form-control"name="salesman" id="">
+                  <option value="">Please Choose  SalesMan</option>
+                  @foreach ($salsmens as $salesman)
+                  <option value="{{$salesman->id}}">{{$salesman->name}}</option>
+
+                  @endforeach
+
+                  </select>
+                </div>
+                <div class="col-6">
+                <div class="form-group">
+                    <label for="cc-payment" class="control-label mb-1">The Payment :</label>
+                    <select class="form-control"name="payment" id="">
+                      <option value="">Please Choose  Payment</option>
+                      <option value="Sat Acc">Sat Acc</option>
+                      <option value="Client Acc">Client Acc</option>
+                      </select>
                     </div> 
-      
                 </div>
-             
-                     </div>  
+          </div>  
+          <div class="row">
+                <div class="col-6">
+                  <label for="cc-payment" class="control-label mb-1">Banks :</label>
+                  <select class="form-control"name="bank" id="">
+                  <option value="">Please Choose  Banks</option>
+                  @foreach ($banks as $bank)
+                  <option value="{{$bank->id}}">{{$bank->name}}</option>
+
+                  @endforeach
+
+                  </select>
+                </div>
+                <div class="col-6">
+                <div class="form-group">
+                    <label for="cc-payment" class="control-label mb-1"> Transfer from the student's bank :</label>
+                    <select class="form-control"name="transfer_bank" id="">
+                    <option value="">Please Choose  Banks</option>
+                    @foreach ($banks as $bank)
+                    <option value="{{$bank->id}}">{{$bank->name}}</option>
+  
+                    @endforeach
+  
+                    </select>
+                    </div> 
+                </div>
+          </div>  
                      <div class="row" id="row_file">
                       <div class="col-6">
                         <div class="form-group">
@@ -90,9 +148,12 @@
                           <label for="" class="control-label mb-1"> Status:</label>
                           <select class="form-control "  name="status" id="">
                             <option value="">Please Choose Place</option>
-                            <option value="0">  New</option>
-                            <option value="1"> Inprogress </option>
-                            <option value="2"> Done </option>
+                            <option value="New">  New</option>
+                            <option value="Waiting for the documents">Waiting for the documents </option>
+                            <option value="Waiting for payment"> Waiting for payment </option>
+                            <option value="Applied"> Applied </option>
+                            <option value="Issued"> Issued  </option>
+                            <option value="Rejected"> Rejected </option>
                            
   
                           </select>

@@ -26,9 +26,16 @@
         <td>{{ $student->phone }}</td>
     </tr>
     <tr>
-        <th>Address</th>
-        <td>{{ $student->address }}</td>
+        <th>Nationality</th>
+        <td>{{ $student->nationality }}</td>
     </tr>
+    <tr>
+        <th>Student Type</th>
+        <td>{{$student->student_type}}</td>
+
+    </tr>
+   
+
     <tr>
         <th>Media</th>
         @if(!$student_media->isEmpty())
@@ -48,6 +55,86 @@
 
     </tr>
     </tbody>
+   <hr >
+  
+</table>
+<div class="card-title">
+    <h3 class="text-center title-2">Information Student  Universities </h3>
+    </div>
+<table class="table table-striped table-bordered">
+
+    <tbody  class="text-left">
+       
+        <th>University </th>
+        <th>Agency</th>
+        <th>Kind Of Course</th>
+        <th>Sales Man</th>
+        <th>Start Date</th>
+
+        <th>Status</th>
+        <th>Text Note</th>
+       @if(!$StudentsRequest->isEmpty() )
+        @foreach( $StudentsRequest as $request)
+        <tr>
+        <td> {{$request->university->name }} </td>
+        <td> {{ $request->agency->name }}</td>
+        <td> {{ $request->kind_of_course }}</td>
+        <td> {{ $request->salesman->name }}</td>
+        <td> {{ $request->start_date }}</td>
+        <td> {{ $request->status }}</td>
+        <td> {{ $request->text_note ? $request->text_note:'----'  }}</td>
+        </tr>
+        @endforeach
+        @else 
+        <tr> <td colspan='9' style="text-align: center">!Opps there are no Information For University Requests  </td></tr>
+    @endif
+    
+
+
+</tbody>   
+</table>
+<div class="card-title">
+    <h3 class="text-center title-2">Information Student  English Schools </h3>
+    </div>
+<table class="table table-striped table-bordered">
+
+    <tbody  class="text-left">
+       
+        <th>English School </th>
+        <th> Course</th>
+
+        <th>Sales Man</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Duration</th>
+        <th>Residence</th>
+
+        <th>Status</th>
+        <th>Text Note</th>
+       @if(!$englishSchoolsRequests->isEmpty() )
+        @foreach( $englishSchoolsRequests as $request)
+        <tr>
+            <td>{{$request->englishschool->name}}</td>
+            <td>{{$request->course}}</td>
+            <td>{{$request->salesman->name}}</td>
+            <td>{{$request->start_date}}</td>
+            <td>{{$request->end_date}}</td>
+            <td>{{$request->duration}}</td>
+
+            <td>{{$request->residence ?? '----'}}</td>
+            <td>{{$request->status}}</td>
+
+
+        <td> {{ $request->text_note ? $request->text_note:'----'  }}</td>
+        </tr>
+        @endforeach
+        @else 
+        <tr> <td colspan='9' style="text-align: center">!Opps there are no Information For University Requests  </td></tr>
+    @endif
+    
+
+
+</tbody>   
 </table>
     </div>
     </div>

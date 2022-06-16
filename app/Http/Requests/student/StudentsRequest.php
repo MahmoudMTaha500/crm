@@ -27,7 +27,7 @@ class StudentsRequest extends FormRequest
             "name"=>"required",
             "email"=>"required",
             "phone"=>"required",
-            "address"=>"required",
+            "student_type"=>"required",
             "nationality"=>"required"
          
         ];
@@ -39,7 +39,7 @@ class StudentsRequest extends FormRequest
           'name.required'=>"   Name is Required",
           'email.required'=>"  E-Mail Is Required",
           'phone.required'=>"   Phone Is Required ",
-          'address.required'=>"   Address Is Required",
+          'student_type.required'=>"   Student Type Is Required",
           'nationality.required'=>"   Nationality Is Required",
           
 

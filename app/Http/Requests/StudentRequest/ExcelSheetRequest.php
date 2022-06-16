@@ -24,14 +24,21 @@ class ExcelSheetRequest extends FormRequest
     public function rules()
     {
         return [
-            'ids'=>'required'
+            // 'ids'=>'    array|required|min:1',
+        //     "ids"    => [
+        //         'array',
+        //         'required',
+               
+        //   ],
         ];
+        
     }
 
     public function messages(){
      return [
 
         'ids.required'=>"Please Choose one Row to Export Excel Sheet"
+            
      ];
     }
 }

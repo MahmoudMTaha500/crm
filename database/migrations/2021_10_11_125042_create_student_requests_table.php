@@ -22,7 +22,13 @@ class CreateStudentRequestsTable extends Migration
             $table->integer('status')->default(0);
             $table->bigInteger('salesman_id')->unsigned();
             $table->foreign('salesman_id')->references('id')->on('sales_men')->onDelete('cascade');
-            $table->integer('creator_id');
+            $table->bigInteger('agency_id')->unsigned()->default(0);
+            // $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');
+            $table->string('course')->default('');
+            $table->string('course_note')->default('');
+
+
+            $table->string('creator');
             $table->timestamps();
         });
     }

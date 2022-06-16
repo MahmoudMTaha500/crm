@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,5 +24,13 @@ class DatabaseSeeder extends Seeder
         $this->call(VisaSeeder::class);
         // $this->call(LaratrustSeeder::class);
         $this->call(EmployeeSeeder::class);
+        $this->call(AgencySeeder::class);
+        $this->call(UniversitySeeder::class);
+        $this->call(EnglishSchoolSeeder::class);
+        $this->call(UniversityRequestsSeeder::class);
+        $this->call(MarkterSeeder::class);
+        $this->call(EnglishSchoolRequestsSeeder::class);
+        $this->call(VisaTypeSeeder::class);
+        $this->call(BankSeeder::class);
     }
 }

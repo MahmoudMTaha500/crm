@@ -82,7 +82,8 @@
                                     <td>{{$city->id}}</td>
                                     <td>{{$city->country->name}}</td>
                                     <td>{{$city->name}}</td>
-                                    <td>Admin</td>
+                                    <td>{{$city->creator}}</td>
+                                    
                                   <td>
                                     <div class="table-data-feature">
                                        

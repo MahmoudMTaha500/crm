@@ -21,7 +21,8 @@ class PlaceOfStudySeeder extends Seeder
                 "name" => 'place'.$x,
                 "country_id" => $country_id,
                 "city_id" => $city_id,
-                "creator_id" => 1,
+                "creator" =>"admin",
+
                 "type_id" => rand(1 , 2),
             ]);
 

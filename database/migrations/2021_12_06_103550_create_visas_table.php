@@ -17,9 +17,23 @@ class CreateVisasTable extends Migration
             $table->id();
             $table->bigInteger('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+
+            $table->bigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('visa_types')->onDelete('cascade');
+            $table->bigInteger('salesman_id')->unsigned();
+            $table->foreign('salesman_id')->references('id')->on('sales_men')->onDelete('cascade');
+            $table->bigInteger('bank_id')->unsigned();
+            $table->foreign('bank_id')->references('id')->on('banks')->onDelete('cascade');
+            $table->bigInteger('transfer_bank_id')->unsigned();
+            $table->foreign('transfer_bank_id')->references('id')->on('banks')->onDelete('cascade');
+            $table->string('date');
+            $table->integer('fees');
+            $table->string('payment');
             $table->string('other')->nullable();
             $table->string('status')->default(0);
-            $table->integer('creator_id');
+            $table->string('creator');
 
             $table->timestamps();
         });

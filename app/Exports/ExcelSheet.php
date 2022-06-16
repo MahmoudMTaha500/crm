@@ -6,6 +6,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use App\StudentRequest;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
+use App\universityRequests;
 
 
 class ExcelSheet implements FromView
@@ -33,8 +34,8 @@ class ExcelSheet implements FromView
     {
         // dd($this->request->ids);
         // dd(StudentRequest::whereIn('id',$this->request->ids)->get());
-        return view('admin.students_Requests.exports', [
-            'studentRequests' => StudentRequest::whereIn('id',$this->request->ids)->get()
+        return view('admin.universityRequests.exports', [
+            'universityRequests' => universityRequests::whereIn('id',$this->request->requests_ids)->get()
         ]);
     }
 }

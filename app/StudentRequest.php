@@ -12,6 +12,8 @@ class StudentRequest extends Model
     public function student(){
        return  $this->belongsTo('App\Student','student_id','id');
     }
+  
+  
     
     public function study_place(){
         return  $this->belongsTo('App\Place_of_study','study_place_id','id');

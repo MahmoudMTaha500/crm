@@ -17,11 +17,13 @@
     </div>
     </div>
 </div>
+
+</div>
+
 @include('sweetalert::alert')
 
 @include('admin.includes.footer')
 @yield('admin.scripts')   
-
 </body>
 
 

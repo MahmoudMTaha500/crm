@@ -17,7 +17,7 @@ class CreateSalesMenTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->integer('creator_id');
+            $table->string('creator');
             $table->timestamps();
         });
     }

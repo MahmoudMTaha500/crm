@@ -33,9 +33,10 @@
     
         <!-- Main CSS-->
         <link href="{{url('/')}}/css/theme.css" rel="stylesheet" media="all">
-    
+        
     </head>
     <body class="animsition">
+        <div id="crm_app">
         <div class="page-wrapper">
 
     <div class="page-container">

@@ -9,7 +9,10 @@ use App\Student_media;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\student\StudentsRequest;
 use App\Student;
-
+use App\Country;
+use App\VisaType;
+use App\SalesMan;
+use App\Bank;
 class VisaController extends Controller
 {
     /**
@@ -30,7 +33,7 @@ class VisaController extends Controller
     
                 $visas = new Visa;
                 if($request->email){
-                    $visas = $visas->with('student')->whereHas(     'student',function($query) use ($email) {
+                    $visas = $visas->with('student')->whereHas('student',function($query) use ($email) {
                         $query->where('email',$email);
                     });
     
@@ -73,7 +76,12 @@ class VisaController extends Controller
      */
     public function create()
     {
-        return view('admin.visa.create' );
+        $students =Student::get();
+        $countries =Country::get();
+        $types =VisaType::get();
+        $salsmens =SalesMan::get();
+        $banks =Bank::get();
+        return view('admin.visa.create',compact('students','countries','types','salsmens','banks') );
         
     }
 
@@ -83,15 +91,39 @@ class VisaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentsRequest $request)
+    public function store(Request $request)
     {
-        $StudentController = new   StudentController();
-        $StudentController->store($request);
+        // $StudentController = new   StudentController();
+        // $StudentController->store($request);
+
+
+        /**\
+         * "student" => "1"
+  "country_id" => "3"
+  "date" => "2022-06-06"
+  "type" => "1"
+  "fees" => "44"
+  "salesman" => "3"
+  "payment" => "Sat Acc"
+  "bank" => "7"
+  "transfer_bank" => "11"
+  "name_of_file" => array:1 [▶]
+  "status" => "Waiting for payment"
+  "other" => null
+         * */ 
+        dd($request->all());
          Visa::create([
-            'student_id'=>$StudentController->student_id ,
+            'student_id'=>$request->student ,
+            'date'=>$request->date ,
+            'type_id'=>$request->type ,
+            'salesman'=>$request->salesman ,
+            'fees'=>$request->fees ,
+            'country_id'=>$request->country_id ,
+            'bank_id'=>$request->bank ,
+            'transfer_bank_id'=>$request->transfer_bank ,
             "other" => $request->other,
             "status" => $request->status,
-            "creator_id" => 1,
+            'creator'=>auth()->user()->name,
         ]);
          Alert::success('Add  Opration','Visa Student Added Succssfully');
          return redirect()->route('visa.index');

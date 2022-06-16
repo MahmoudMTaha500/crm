@@ -16,7 +16,8 @@ class SalesManSeeder extends Seeder
             SalesMan::create([
                 'name'=>"SalesMan".$x,
                 'phone'=>"12544984".$x,
-                'creator_id'=>"1",
+                "creator" =>"admin",
+
             ]);
          }
     }

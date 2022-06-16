@@ -44,7 +44,7 @@ class SalesManController extends Controller
         SalesMan::create([
             'name'=>$request->name,
             'phone'=>$request->phone,
-            'creator_id'=>1,
+            'creator'=>auth()->user()->name,
           
         ]);
 

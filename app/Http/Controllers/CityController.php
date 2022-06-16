@@ -89,7 +89,7 @@ class CityController extends Controller
         City::create([
             'name'=>$name, 
             'country_id'=>$country_id, 
-            'creator_id'=>1
+            'creator'=>auth()->user()->name,
             
         ]);
         Alert::success('Add Opreation', 'City Added Successfully ');

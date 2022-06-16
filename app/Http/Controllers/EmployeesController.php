@@ -42,9 +42,11 @@ class EmployeesController extends Controller
      */
     public function store(EmployeesRequest $request)
     {
+        // dd(auth()->user()->name);
         $admin = User::create([
             "name" => $request->name,
             "email" => $request->email,
+            'creator'=>auth()->user()->name,
             "password" => bcrypt("$request->password"),
             ]);
             if($request->role =="admin"){

@@ -112,8 +112,9 @@
                                     <td>{{$place->country->name}}</td>
                                     <td>{{$place->city->name}}</td>
                                     <td>{{$place->type->name}}</td>
+                                    <td>{{$place->creator}}</td>
 
-                                    <td>Admin</td>
+                                    
                                   <td>
                                     <div class="table-data-feature">
                                        

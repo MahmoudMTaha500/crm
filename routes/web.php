@@ -36,6 +36,7 @@ Route::group(['middleware' => ['role:admin']], function(){
     // Route::resource('student', StudentController::class);
     // Route::resource('student-request', StudentRequestController::class);
     Route::resource('salesman', SalesManController::class);
+    Route::resource('markter', MarkterController::class);
     // Route::resource('visa', VisaController::class);
     Route::resource('employee', EmployeesController::class);
 });
@@ -47,17 +48,43 @@ Route::group(['middleware' => ['role:admission|admin']], function(){
     Route::get('student/media/delete/{id}',"StudentController@deleteMedia");
     Route::get('student-request/allrequests/download', 'StudentRequestController@All_Requests_In_Excel')->name('student-request.excel');
     Route::get('student-request/request/download', 'StudentRequestController@Requests_In_Excel')->name('student-request.request-excel');
+
+    // ///////////////////  Start axios  University ////////////////////////////
+    Route::get('university-request/allrequests/download', 'UniversityRequestsController@All_Requests_In_Excel')->name('university-request.excel');
+    Route::get('university-request/request/download', 'UniversityRequestsController@Requests_In_Excel')->name('university-request.request-excel');
+   
+    Route::get('university-request/get-uni','UniversityRequestsController@getUni');
+    Route::get('university-request/get-agency','UniversityRequestsController@getAgency');
+    Route::get('university-request/get-students','UniversityRequestsController@getstudents');
+    Route::get('university-request/get-agency-uni','UniversityRequestsController@getagencyUni');
+    // ///////////////////  Route English school axios  ////////////////////////////
+    Route::get('english-school-request/allrequests/download', 'EnglishSchoolRequestsController@All_Requests_In_Excel')->name('english-school-request.excel');
+    Route::get('english-school-request/request/download', 'EnglishSchoolRequestsController@Requests_In_Excel')->name('english-school-request.request-excel');
+
+    Route::get('english-school-request/get-english-school','EnglishSchoolRequestsController@getEnglishSchool');
+    Route::get('english-school-request/get-agency','EnglishSchoolRequestsController@getAgency');
+    Route::get('english-school-request/get-students','EnglishSchoolRequestsController@getstudents');
+    Route::get('english-school-request/get-agency-uni','EnglishSchoolRequestsController@getagencyUni');
+    // ///////////////////  End axios  ////////////////////////////
+
     Route::resource('country', CountryController::class);
     Route::resource('city', CityController::class);
     Route::resource('place', PlaceOfStudyController::class);
+    Route::resource('agency',AgencyController::class);
+    Route::resource('university',UniversityController::class);
+    Route::resource('english-school',EnglishSchoolController::class);
    
     Route::resource('student-request', StudentRequestController::class);
+    Route::resource('university-request', UniversityRequestsController::class);
+    Route::resource('english-school-request', EnglishSchoolRequestsController::class);
 });
     //  ////////////////////////////End  admission/////////////////////////////////////////////
     //  ////////////////////////////Start  visa/////////////////////////////////////////////
 
 Route::group(['middleware' => ['role:visa|admin']], function(){
 Route::resource('visa',VisaController::class);
+Route::resource('visa-type',VisaTypeController::class);
+Route::resource('bank',BankController::class);
 });
 
 Route::group(['middleware' => ['role:visa|admin|admission']], function(){

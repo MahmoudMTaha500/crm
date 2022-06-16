@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\File;
 use App\Http\Requests\student\StudentsRequest;
 use App\Http\Controllers\VisaController;
 use App\Visa;
+use App\StudentRequest;
+use App\Agency;
+use App\University_Agencies;
+use App\University;
+use App\universityRequests;
+use App\EnglishSchoolRequests;
+
 class StudentController extends Controller
 {
     public $student_id;
@@ -50,7 +57,7 @@ class StudentController extends Controller
 
             $students=   $students->orderBy('id', 'DESC')->paginate(10);
        } else{
-        $students = Student::orderBy('id', 'DESC')->paginate(10);
+        $students = Student::with('studentRequest.study_place')->orderBy('id', 'DESC')->paginate(10);
      
     
        }
@@ -84,14 +91,14 @@ class StudentController extends Controller
            'name'=>$request->name, 
            'email'=>$request->email, 
            'phone'=>$request->phone, 
-           'address'=>$request->address, 
+           'student_type'=>$request->student_type, 
            'nationality'=>$request->nationality, 
-           'creator_id'=>1, 
+           'creator'=>auth()->user()->name, 
         ]);
 
 
         $this->student_id = $student->id;
-if($request->file){
+          if($request->file){
 
         for($x=0;  $x < count($request->name_of_file)   ;$x++)
         {
@@ -139,11 +146,13 @@ if($request->to_visa){
      */
     public function show(Student $student)
     {
-        // dd($student);
 
+$StudentsRequest=universityRequests::where('student_id',$student->id)->with('university')->get();
+        // dd($student->studentRequest );
+  $englishSchoolsRequests = EnglishSchoolRequests::where('student_id',$student->id)->with('englishschool')->get();
         $student_media = Student_media::where('student_id',$student->id)->get();
 
-        return view('admin.students.show', compact('student','student_media'));
+        return view('admin.students.show', compact('student','student_media','StudentsRequest','englishSchoolsRequests'));
         
     }
 
@@ -173,7 +182,7 @@ if($request->to_visa){
         $student->name=$request->name;
         $student->email=$request->email;
         $student->phone=$request->phone;
-        $student->address=$request->address;
+        $student->student_type=$request->student_type;
         $student->nationality=$request->nationality;
         $student->save();
 if($request->file){

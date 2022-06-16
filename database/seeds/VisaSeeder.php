@@ -18,7 +18,8 @@ class VisaSeeder extends Seeder
                 "other" => 'describtion for visa '.$x,
                 "status" => 0,
 
-                "creator_id" => 1,
+                "creator" =>"admin",
+
             ]);
         }
     }

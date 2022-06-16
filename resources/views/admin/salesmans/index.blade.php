@@ -20,7 +20,8 @@
                                     <td>{{$salesman->id}}</td>
                                     <td>{{$salesman->name}}</td>
                                     <td>{{$salesman->phone}}</td>
-                                    <td>Admin</td>
+                                    <td>{{$salesman->creator}}</td>
+                                    
                                   <td>
                                     <div class="table-data-feature">
                                        

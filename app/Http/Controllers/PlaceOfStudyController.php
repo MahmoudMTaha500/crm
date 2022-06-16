@@ -8,6 +8,8 @@ use App\City;
 use App\Http\Requests\study_place\studyPlaceRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use App\EnglishSchool;
+use App\University;
 
 class PlaceOfStudyController extends Controller
 {
@@ -73,26 +75,50 @@ class PlaceOfStudyController extends Controller
         // dd($request->all());
         $country_id = $request->country_id;
         $cities = City::where("country_id", $country_id)->get();
-        $html_city=' <option value=""> Chosse City </option>';
-        foreach($cities as $city){
-            $html_city .= "
-           <option value="."$city->id".">$city->name"." </option>";
+
+        $place = '' ;
+        if($request->type=='school'){
+            $place=EnglishSchool::find($request->place_id);
         }
+        if($request->type=='university'){
+            $place=University::find($request->place_id);
+        }
+
+
+        if($place){
+            $html_city=' <option value=""> Chosse City </option>';
+        foreach($cities as $city){
+            $html_city .= "<option ".($place->city_id == $city->id ? 'selected' : '')."  value="."$city->id".">$city->name"." </option>";
+        }
+        } else{
+            $html_city=' <option value=""> Chosse City </option>';
+            foreach ($cities as $city) {
+                $html_city .= "<option   value=" . " $city->id" . "> $city->name "." </option>";
+            }
+        }
+        
+
+
 if($country_id){
-    $institutes = Place_of_study::where("country_id", $country_id)->where('type_id',1)->get();
+    $institutes = EnglishSchool::where('country_id',$country_id)->get();
 
-    $universities = Place_of_study::where("country_id", $country_id)->where('type_id',2)->get();
+    $universities = University::where("country_id", $country_id)->get();
+    if($request->city_id){
+        $institutes = EnglishSchool::where('country_id',$country_id)->where('city_id',$request->city_id)->get();
+
+        $universities = University::where("country_id", $country_id)->where('city_id',$request->city_id)->get();
+    }
 } else{
-    $institutes = Place_of_study::where('type_id',1)->get();
+    $institutes = EnglishSchool::get();
 
-    $universities = Place_of_study::where('type_id',2)->get();
+    $universities = University::get();
 
 }
        
 
 
 
-        $html_institute=' <option value=""> Chosse institute </option>';
+        $html_institute=' <option value=""> Chosse English School </option>';
         foreach($institutes as $institute){
             $html_institute .= "
            <option value="."$institute->id".">$institute->name"." </option>";
@@ -122,7 +148,7 @@ if($country_id){
             'country_id'=>$request->country_id,
             'city_id'=>$request->city_id,
             'type_id'=>$request->type_id,
-            'creator_id'=>1,
+            'creator'=>auth()->user()->name,
         ]);
         Alert::success('Add Opreation', 'Place  Added Successfully ');
         return redirect()->route('place.index');

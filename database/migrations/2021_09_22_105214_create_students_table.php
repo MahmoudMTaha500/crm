@@ -18,9 +18,9 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->string('address');
+            $table->string('student_type');
             $table->string('nationality');
-            $table->integer('creator_id');
+            $table->string('creator');
             $table->timestamps();
         });
     }

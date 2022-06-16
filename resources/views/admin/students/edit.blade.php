@@ -34,8 +34,12 @@
          <div class="col-4">
           <div class="form-group">
             <label for="cc-payment" class="control-label mb-1">Nationality:</label>
-            <input  name="nationality" type="text" class="form-control"  required  value="{{$student->nationality}}" placeholder="type your  Nationality">
-       
+            {{-- <input  name="nationality" type="text" class="form-control"  required  value="{{$student->nationality}}" placeholder="type your  Nationality"> --}}
+            <select name="nationality"   class="form-control" required id="">
+              <option value="">Chosse Nationality </option>
+              <option @if($student->nationality == "saudi") selected @endif value="saudi">Saudi </option>
+              <option @if($student->nationality == "other") selected @endif value="other">Other </option>
+            </select>
             </div> 
 
         </div>
@@ -50,9 +54,13 @@
                 </div>
                 <div class="col-6">
                   <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">Address :</label>
-                    <input  name="address" type="text" class="form-control"  value="{{$student->address}}" placeholder="type your Address">
-                 
+                    <label for="cc-payment" class="control-label mb-1">Student Type :</label>
+                    <select name="student_type"   class="form-control" required id="">
+                      <option value="">Chosse Type </option>
+                      <option  @if($student->student_type == "sponsored") selected @endif value="sponsored">Sponsored </option>
+                      <option  @if($student->student_type == "self funded") selected @endif value="self funded">Self Funded </option>
+                      <option  @if($student->student_type == "dependent") selected @endif value="dependent">Dependent </option>
+                    </select>
                     </div> 
       
                 </div>

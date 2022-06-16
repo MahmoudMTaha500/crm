@@ -70,7 +70,7 @@ class CountryController extends Controller
         $name = $request->name;
         Country::create([
             'name'=>$name, 
-            'creator_id'=>1
+            'creator'=>auth()->user()->name,
             
         ]);
         Alert::success('Add Opreation', 'Country Added Successfully ');

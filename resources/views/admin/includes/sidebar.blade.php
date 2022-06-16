@@ -45,7 +45,7 @@
                       
                     </ul>
                 </li>   
-                <li class=" @if(Route::is('place.*') )  active @endif has-sub">
+                {{-- <li class=" @if(Route::is('place.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
                         <i class="fas fa-university"></i>Places Of Study</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -54,6 +54,38 @@
                         </li>
                         <li class=" @if(Route::is('place.create') )  active @endif ">
                             <a href="{{route('place.create')}}">Add Place</a>
+                        </li>
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li> --}}
+                <li class=" @if(Route::is('university.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas fa-university"></i>Universities </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('university.index') )  active @endif ">
+                            <a href="{{route('university.index')}}"> All Universities</a>
+                        </li>
+                        <li class=" @if(Route::is('university.create') )  active @endif ">
+                            <a href="{{route('university.create')}}">Add University</a>
+                        </li>
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                <li class=" @if(Route::is('english-school.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fa fa-school"></i>English Schools </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('english-school.index') )  active @endif ">
+                            <a href="{{route('english-school.index')}}"> All English Schools</a>
+                        </li>
+                        <li class=" @if(Route::is('english-school.create') )  active @endif ">
+                            <a href="{{route('english-school.create')}}">Add New English School</a>
                         </li>
                         <li>
                             <a href="index3.html">archive</a>
@@ -77,7 +109,7 @@
                       
                     </ul>
                 </li>
-                <li class=" @if(Route::is('student-request.*') )  active @endif has-sub">
+                {{-- <li class=" @if(Route::is('student-request.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
                         <i class="fas  fa-paper-plane "></i>Student Requests</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -86,6 +118,57 @@
                         </li>
                         <li class=" @if(Route::is('student-request.create') )  active @endif ">
                             <a href="{{route('student-request.create')}}">Add Student Request</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li> --}}
+                <li class=" @if(Route::is('university-request.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas  fa-paper-plane "></i>University Requests</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('university-request.index') )  active @endif ">
+                            <a href="{{route('university-request.index')}}"> All University Requests</a>
+                        </li>
+                        <li class=" @if(Route::is('university-request.create') )  active @endif ">
+                            <a href="{{route('university-request.create')}}">Add University Request</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                <li class=" @if(Route::is('english-school-request.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas  fa-paper-plane "></i>English School Requests</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('english-school-request.index') )  active @endif ">
+                            <a href="{{route('english-school-request.index')}}"> All English Schools Requests</a>
+                        </li>
+                        <li class=" @if(Route::is('english-school-request.create') )  active @endif ">
+                            <a href="{{route('english-school-request.create')}}">Add English School Request</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                <li class=" @if(Route::is('agency.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas  fa-paper-plane "></i>Agency </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('student-request.index') )  active @endif ">
+                            <a href="{{route('agency.index')}}"> All Agencies </a>
+                        </li>
+                        <li class=" @if(Route::is('agency.create') )  active @endif ">
+                            <a href="{{route('agency.create')}}">Add Agency </a>
                         </li>
                         
                         <li>
@@ -105,6 +188,24 @@
                         </li>
                         <li class=" @if(Route::is('salesman.create') )  active @endif ">
                             <a href="{{route('salesman.create')}}">Add Salesman</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+               
+                <li class=" @if(Route::is('markter.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fas fa-male"></i>Markters</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('markter.index') )  active @endif ">
+                            <a href="{{route('markter.index')}}"> All Markters</a>
+                        </li>
+                        <li class=" @if(Route::is('markter.create') )  active @endif ">
+                            <a href="{{route('markter.create')}}">Add Markter</a>
                         </li>
                         
                         <li>
@@ -142,6 +243,40 @@
                         </li>
                         <li class=" @if(Route::is('visa.create') )  active @endif ">
                             <a href="{{route('visa.create')}}">Add Visa</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                <li class=" @if(Route::is('visa-type.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fa fa-cc-visa"></i>Visa Type</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('visa-type.index') )  active @endif ">
+                            <a href="{{route('visa-type.index')}}"> All Visa Type</a>
+                        </li>
+                        <li class=" @if(Route::is('visa-type.create') )  active @endif ">
+                            <a href="{{route('visa-type.create')}}">Add  Visa Type</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index3.html">archive</a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                <li class=" @if(Route::is('bank.*') )  active @endif has-sub">
+                    <a class="js-arrow  " href="#">
+                        <i class="fa fa-bank"></i> Bank</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li class=" @if(Route::is('bank.index') )  active @endif ">
+                            <a href="{{route('bank.index')}}"> All Bank</a>
+                        </li>
+                        <li class=" @if(Route::is('bank.create') )  active @endif ">
+                            <a href="{{route('bank.create')}}">Add  New Bank</a>
                         </li>
                         
                         <li>

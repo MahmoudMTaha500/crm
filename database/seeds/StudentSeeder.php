@@ -19,9 +19,10 @@ class StudentSeeder extends Seeder
                 "phone" => '0123456'.$x,
                 "email" => 'student@app.com'.$x,
                 "nationality" => 'nationality'.$x,
-                "address" => 'Student Address '.$x,
+                "student_type" => 'sponsored',
                
-                "creator_id" => 1,
+                "creator" =>"admin",
+
             ]);
         }
     }

@@ -78,7 +78,7 @@
                                     <th>Name</th>
                                     <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Address</th>
+                                    <th>Student Type</th>
                                     <th>Nationality</th>
 
                                     
@@ -94,12 +94,13 @@
                                     <td>{{$student->name}}</td>
                                     <td>{{$student->phone}}</td>
                                     <td>{{$student->email}}</td>
-                                    <td>{{$student->address}}</td>
+                                    <td>{{$student->student_type}}</td>
                                     <td>{{$student->nationality}}</td>
+                                    <td>{{$student->creator}}</td>
 
                                   
 
-                                    <td>Admin</td>
+                                    
                                   <td>
                                     <div class="table-data-feature">
                                        

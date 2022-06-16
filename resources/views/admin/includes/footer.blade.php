@@ -1,3 +1,6 @@
+@if(isset($useVue))
+<script src="{{asset('js/app.js')}}"></script>      
+@endif
 <script src="{{url('/')}}/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
 <script src="{{url('/')}}/vendor/bootstrap-4.1/popper.min.js"></script>
@@ -25,5 +28,6 @@
 <!-- Main JS-->
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 <script src="{{url('/')}}/js/main.js"></script>
+
 
 
