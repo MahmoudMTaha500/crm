@@ -113,16 +113,16 @@
             <div class="col-md-3 mb-3">
                 <div class="checkbox">
                     <h5 for="">university request  </h5>
-                    <label><input name="permission[]" type="checkbox" value="create-university-request" />create</label>
+                    <label><input name="permission[]" type="checkbox" value="create-requestuniversity" />create</label>
                 </div>
                 <div class="checkbox">
-                    <label><input name="permission[]" type="checkbox" value="update-university-request" />update</label>
+                    <label><input name="permission[]" type="checkbox" value="update-requestuniversity" />update</label>
                 </div>
                 <div class="checkbox">
-                    <label><input name="permission[]" type="checkbox" value="show-university-request" />show</label>
+                    <label><input name="permission[]" type="checkbox" value="show-requestuniversity" />show</label>
                 </div>
                 <div class="checkbox">
-                    <label><input name="permission[]" type="checkbox" value="delete-university-request" />delete</label>
+                    <label><input name="permission[]" type="checkbox" value="delete-requestuniversity" />delete</label>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
@@ -143,16 +143,16 @@
             <div class="col-md-3 mb-3">
                 <div class="checkbox">
                     <h5 for="">english school request  </h5>
-                    <label><input name="permission[]" type="checkbox" value="create-english-school-request" />create</label>
+                    <label><input name="permission[]" type="checkbox" value="create-requestenglishschool" />create</label>
                 </div>
                 <div class="checkbox">
-                    <label><input name="permission[]" type="checkbox" value="update-english-school-request" />update</label>
+                    <label><input name="permission[]" type="checkbox" value="update-requestenglishschool" />update</label>
                 </div>
                 <div class="checkbox">
-                    <label><input name="permission[]" type="checkbox" value="show-english-school-request" />show</label>
+                    <label><input name="permission[]" type="checkbox" value="show-requestenglishschool" />show</label>
                 </div>
                 <div class="checkbox">
-                    <label><input name="permission[]" type="checkbox" value="delete-english-school-request" />delete</label>
+                    <label><input name="permission[]" type="checkbox" value="delete-requestenglishschool" />delete</label>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
