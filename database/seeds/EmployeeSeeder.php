@@ -106,50 +106,50 @@ Role::create(
 // university permission
         $permission = Permission::create(
             [
-                'name' => 'create-request-university',
+                'name' => 'create-requestuniversity',
                 'display_name' => 'create request university', // optional
                 'description' => 'create request university', // optional
             ]);
 
         $permission = Permission::create( [
-            'name' => 'show-request-university',
+            'name' => 'show-requestuniversity',
             'display_name' => 'show request university', // optional
             'description' => 'show request university', // optional
         ]);
         $permission = Permission::create(
             [
-                'name' => 'update-request-university',
+                'name' => 'update-requestuniversity',
                 'display_name' => 'update request university', // optional
                 'description' => 'update request university', // optional
             ]);
         $permission = Permission::create(
             [
-                'name' => 'delete-request-university',
+                'name' => 'delete-requestuniversity',
                 'display_name' => 'delete request university', // optional
                 'description' => 'delete request university', // optional
             ]);
         // english school permission
         $permission = Permission::create(
             [
-                'name' => 'create-request-english-school',
+                'name' => 'create-requestenglishschool',
                 'display_name' => 'create request english school', // optional
                 'description' => 'create request english school', // optional
             ]);
 
         $permission = Permission::create( [
-            'name' => 'show-request-english-school',
+            'name' => 'show-requestenglishschool',
             'display_name' => 'show request english school', // optional
             'description' => 'show request english school', // optional
         ]);
         $permission = Permission::create(
             [
-                'name' => 'update-request-english-school',
+                'name' => 'update-requestenglishschool',
                 'display_name' => 'update request english school', // optional
                 'description' => 'update request english school', // optional
             ]);
         $permission = Permission::create(
             [
-                'name' => 'delete-request-english-school',
+                'name' => 'delete-requestenglishschool',
                 'display_name' => 'delete request english school', // optional
                 'description' => 'delete request english school', // optional
             ]);

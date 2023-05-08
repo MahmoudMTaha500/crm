@@ -63,7 +63,7 @@
                     </ul>
                 </li>
                 @endif
-                @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-request-university')  )
+                @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestuniversity')  )
 
                 <li class=" @if(Route::is('university.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
@@ -72,7 +72,7 @@
                         <li class=" @if(Route::is('university.index') )  active @endif ">
                             <a href="{{route('university.index')}}"> All Universities</a>
                         </li>
-                        @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-request-university') )
+                        @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-requestuniversity') )
 
                         <li class=" @if(Route::is('university.create') )  active @endif ">
                             <a href="{{route('university.create')}}">Add University</a>
@@ -82,7 +82,7 @@
                     </ul>
                 </li>
                 @endif
-                @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-request-english-school')  )
+                @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestenglishschool')  )
 
                 <li class=" @if(Route::is('english-school.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
@@ -91,7 +91,7 @@
                         <li class=" @if(Route::is('english-school.index') )  active @endif ">
                             <a href="{{route('english-school.index')}}"> All English Schools</a>
                         </li>
-                        @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-request-english-school') )
+                        @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-requestenglishschool') )
 
                         <li class=" @if(Route::is('english-school.create') )  active @endif ">
                             <a href="{{route('english-school.create')}}">Add New English School</a>
