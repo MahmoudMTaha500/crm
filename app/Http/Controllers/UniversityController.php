@@ -19,7 +19,7 @@ class UniversityController extends Controller
      */
     public function index(Request $request)
     {
-        $this->CanDoAction('admin', 'show-request-university');
+        $this->CanDoAction('admin', 'show-requestuniversity');
 
         if($request->filter){
             //    dd($request->all());
@@ -67,7 +67,7 @@ class UniversityController extends Controller
      */
     public function create()
     {
-        $this->CanDoAction('admin', 'create-request-university');
+        $this->CanDoAction('admin', 'create-requestuniversity');
 
         $countries = Country::get();
         $Agencies = Agency::get();
@@ -126,7 +126,7 @@ class UniversityController extends Controller
      */
     public function edit(University $university)
     {
-        $this->CanDoAction('admin', 'edit-request-university');
+        $this->CanDoAction('admin', 'edit-requestuniversity');
 
         $countries = Country::get();
         $Agencies = Agency::get();
@@ -169,7 +169,7 @@ class UniversityController extends Controller
      */
     public function destroy(University $university)
     {
-        $this->CanDoAction('admin', 'delete-request-university');
+        $this->CanDoAction('admin', 'delete-requestuniversity');
 
         University_Agencies::where('university_id',$university->id)->delete();
         $university->delete();

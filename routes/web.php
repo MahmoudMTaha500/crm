@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth' ,  'role:employee|admin' ]], function(){
 
     //  ////////////////////////////Start  admission/////////////////////////////////////////////
 
-Route::group(['middleware' => ['role:admission|admin']], function(){
+Route::group(['middleware' => ['role:employee|admin']], function(){
     Route::get('/place/getcities',"PlaceOfStudyController@getCities");
     Route::get('student/media/delete/{id}',"StudentController@deleteMedia");
     Route::get('student-request/allrequests/download', 'StudentRequestController@All_Requests_In_Excel')->name('student-request.excel');
@@ -80,7 +80,7 @@ Route::group(['middleware' => ['role:admission|admin']], function(){
     //  ////////////////////////////End  admission/////////////////////////////////////////////
     //  ////////////////////////////Start  visa/////////////////////////////////////////////
 
-Route::group(['middleware' => ['role:visa|admin']], function(){
+Route::group(['middleware' => ['role:employee|admin']], function(){
     // ///////////////////  Start axios  VISA ////////////////////////////
     Route::get('/visaType/gettype',"VisaTypeController@getType");
 
@@ -91,7 +91,7 @@ Route::resource('visa',VisaController::class);
 Route::resource('visa-type',VisaTypeController::class);
 });
 
-Route::group(['middleware' => ['role:visa|admin|admission']], function(){
+Route::group(['middleware' => ['role:employee|admin']], function(){
     Route::resource('student', StudentController::class);
 });
 
@@ -99,7 +99,7 @@ Route::group(['middleware' => ['role:visa|admin|admission']], function(){
 
     //  ////////////////////////////Start  Finance/////////////////////////////////////////////
 
-Route::group(['middleware' => ['role:finance|admin']], function(){
+Route::group(['middleware' => ['role:employee|admin']], function(){
 Route::resource('finance-university',FinanceUniversityController::class);
 Route::resource('finance-english-school',EnglishSchoolFinanceController::class);
 

@@ -111,7 +111,7 @@
                         </table>
                     </div>
                 </div>
-                {{$admins->appends(request()->input())->links()}}
+                {{$admins->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
 

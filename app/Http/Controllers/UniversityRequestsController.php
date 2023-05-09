@@ -30,7 +30,7 @@ class UniversityRequestsController extends Controller
      */
     public function index(Request $request)
     {
-        $this->CanDoAction('admin', 'show-request-university');
+        $this->CanDoAction('admin', 'show-requestuniversity');
 
        if($request->filter){
         //    dd($request->all());
@@ -152,7 +152,7 @@ class UniversityRequestsController extends Controller
      */
     public function create()
     {
-        $this->CanDoAction('admin', 'create-request-university');
+        $this->CanDoAction('admin', 'create-requestuniversity');
 
         $salsmens = SalesMan::get();
         $universities = University::get();
@@ -278,7 +278,7 @@ $useVue=true;
      */
     public function edit(universityRequests $universityRequests,Request $request,$id)
     {
-        $this->CanDoAction('admin', 'edit-request-university');
+        $this->CanDoAction('admin', 'edit-requestuniversity');
 
         $universityRequests= universityRequests::find($id);
         $salsmens = SalesMan::get();
@@ -371,7 +371,7 @@ $useVue=true;
      */
     public function destroy(universityRequests $universityRequests)
     {
-        $this->CanDoAction('admin', 'delete-request-university');
+        $this->CanDoAction('admin', 'delete-requestuniversity');
 
     }
 

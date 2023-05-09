@@ -17,9 +17,9 @@
                                 </button>
                             </div>
                             <form action="{{route('student.index')}}" method="GET">
-                             @csrf 
+                             @csrf
                             <input type="hidden" name="filter" value="1">
-                         
+
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-12">
@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="row">
                                     <div class="col-12">
                                       <div class="form-group">
@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -65,7 +65,7 @@
                             Filter
                         </button>
                     </div>
-                   
+
                 </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -81,7 +81,7 @@
                                     <th>Student Type</th>
                                     <th>Nationality</th>
 
-                                    
+
 
                                     <th>Creator</th>
                                     <th class="text-right">Control</th>
@@ -98,12 +98,12 @@
                                     <td>{{$student->nationality}}</td>
                                     <td>{{$student->creator}}</td>
 
-                                  
 
-                                    
+
+
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('student.edit',$student->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -115,14 +115,14 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete This student')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -132,8 +132,8 @@
                         </table>
                     </div>
                 </div>
-                {{$students->appends(request()->input())->links()}}
+                {{$students->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection

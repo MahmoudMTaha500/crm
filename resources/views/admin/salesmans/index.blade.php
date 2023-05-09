@@ -21,10 +21,10 @@
                                     <td>{{$salesman->name}}</td>
                                     <td>{{$salesman->phone}}</td>
                                     <td>{{$salesman->creator}}</td>
-                                    
+
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('salesman.edit',$salesman->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -33,14 +33,14 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete The salesman')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -50,8 +50,8 @@
                         </table>
                     </div>
                 </div>
-                {{$salesmans->links()}}
+                {{$salesmans->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection

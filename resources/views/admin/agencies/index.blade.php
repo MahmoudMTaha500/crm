@@ -17,11 +17,11 @@
                                 </button>
                             </div>
                             <form action="{{route('country.index')}}" method="GET">
-                             @csrf 
+                             @csrf
                             <input type="hidden" name="filter" value="1">
-                         
+
                             <div class="modal-body">
-                              
+
                                 <div class="row">
                                     <div class="col-12">
                                       <div class="form-group">
@@ -48,10 +48,10 @@
                             Filter
                         </button>
                     </div>
-                   
+
                 </div>
             <div class="row">
-            
+
 
                 <div class="col-lg-12">
                     <div class="table-responsive table--no-card m-b-30">
@@ -70,10 +70,10 @@
                                     <td>{{$agency->id}}</td>
                                     <td>{{$agency->name}}</td>
                                     <td>{{$agency->creator}}</td>
-                                    
+
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('agency.edit',$agency->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -89,7 +89,7 @@
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -99,8 +99,8 @@
                         </table>
                     </div>
                 </div>
-                {{$agencies->appends(request()->input())->links()}}
+                {{$agencies->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection
