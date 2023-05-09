@@ -46,8 +46,7 @@ class EmployeesController extends Controller
      */
     public function store(EmployeesRequest $request)
     {
-        // dd(auth()->user()->name);
-//        dd($request->all());
+
         $admin = User::create([
             "name" => $request->name,
             "email" => $request->email,
@@ -113,7 +112,7 @@ class EmployeesController extends Controller
         $emp->phone = $request->phone;
         $emp->department = $request->department;
         if($request->password){
-            $emp->password = $request->password;
+            $emp->password = bcrypt("$request->password") ;
         }
         if($request->role =="admin"){
             $per = \DB::table('permission_user')->where('user_id',$id)->delete();

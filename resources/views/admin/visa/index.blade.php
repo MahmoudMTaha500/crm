@@ -17,9 +17,9 @@
                                 </button>
                             </div>
                             <form action="{{route('visa.index')}}" method="GET">
-                             @csrf 
+                             @csrf
                             <input type="hidden" name="filter" value="1">
-                         
+
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-6">
@@ -41,7 +41,7 @@
                                         <option value=""> Chosse Country </option>
 
                                         @foreach($countries as $country)
-                                        <option  value="{{$country->id}}">{{$country->name}}</option>               
+                                        <option  value="{{$country->id}}">{{$country->name}}</option>
                                         @endforeach
                                         </select>
                                         </div>
@@ -54,7 +54,7 @@
                                             <select name="type" id=""  class="form-control">
                                             <option value=""> Chosse Visa Type </option>
                                             @foreach($types as $type)
-                                            <option  value="{{$type->id}}">{{$type->name}}</option>               
+                                            <option  value="{{$type->id}}">{{$type->name}}</option>
                                             @endforeach
                                             </select>
                                           </div>
@@ -66,7 +66,7 @@
                                           </div>
                                       </div>
                                 </div>
-                               
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
@@ -75,9 +75,9 @@
                                             <option value="">Please Choose  SalesMan</option>
                                             @foreach ($salsmens as $salesman)
                                             <option value="{{$salesman->id}}">{{$salesman->name}}</option>
-                          
+
                                             @endforeach
-                          
+
                                             </select>
                                           </div>
                                       </div>
@@ -100,9 +100,9 @@
                                             <option value="">Please Choose  Banks</option>
                                             @foreach ($banks as $bank)
                                             <option value="{{$bank->id}}">{{$bank->name}}</option>
-                          
+
                                             @endforeach
-                          
+
                                             </select>
                                       </div>
                                     </div>
@@ -113,13 +113,13 @@
                                             <option value="">Please Choose  Banks</option>
                                             @foreach ($banks as $bank)
                                             <option value="{{$bank->id}}">{{$bank->name}}</option>
-                          
+
                                             @endforeach
-                          
+
                                             </select>
                                           </div>
                                       </div>
-                                
+
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
@@ -133,22 +133,22 @@
                                               <option value="Applied"> Applied </option>
                                               <option value="Issued"> Issued  </option>
                                               <option value="Rejected"> Rejected </option>
-                                             
-                    
+
+
                                             </select>
                                           </div>
                                       </div>
-                               
+
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="cc-payment" class="control-label mb-1">Date :</label>
                                         <input  name="date" type="date" class="form-control"   value="" >
-                                    </div> 
+                                    </div>
                                     </div>
                                 </div>
-                         
-                              
-                                
+
+
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -166,7 +166,7 @@
                             Filter
                         </button>
                     </div>
-                   
+
                 </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -185,10 +185,10 @@
                                     <th>The Payment</th>
                                     <th>Bank</th>
                                     <th>Transfer Bank</th>
-                                   
+
                                     <th>Others</th>
                                     <th>Status</th>
-                                    
+
 
                                     <th>Creator</th>
                                     <th class="text-right">Control</th>
@@ -209,15 +209,15 @@
                                     <td>{{$visa->bank->name ?? '---'}}</td>
                                     <td>{{$visa->other}}</td>
                                     <td>{{$visa->status}}</td>
-                                    
-                                    
-                                  
+
+
+
                                     <td>{{$visa->creator}}</td>
 
-                                    
+
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('visa.edit',$visa->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -229,14 +229,14 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete This visa')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -246,8 +246,8 @@
                         </table>
                     </div>
                 </div>
-                {{$visas->appends(request()->input())->links()}}
+                {{$visas->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection

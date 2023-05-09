@@ -24,10 +24,10 @@
                                     <td>{{$visa->country->name}}</td>
 
                                     <td>{{$visa->creator}}</td>
-                                    
+
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('visa-type.edit',$visa->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -36,14 +36,14 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete The visa')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -53,8 +53,8 @@
                         </table>
                     </div>
                 </div>
-                {{$visaTypes->links()}}
+                {{$visaTypes->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection

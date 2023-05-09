@@ -16,7 +16,7 @@ class EnglishSchoolController extends Controller
      */
     public function index(Request $request)
     {
-        $this->CanDoAction('admin','show-request-english-school');
+        $this->CanDoAction('admin','show-requestenglishschool');
 
         if($request->filter){
             //    dd($request->all());
@@ -64,7 +64,7 @@ class EnglishSchoolController extends Controller
      */
     public function create()
     {
-        $this->CanDoAction('admin','create-request-english-school');
+        $this->CanDoAction('admin','create-requestenglishschool');
 
         $countries = Country::get();
         return view('admin.englishSchools.create',compact('countries'));
@@ -114,7 +114,7 @@ class EnglishSchoolController extends Controller
      */
     public function edit(EnglishSchool $englishSchool)
     {
-        $this->CanDoAction('admin','edit-request-english-school');
+        $this->CanDoAction('admin','edit-requestenglishschool');
 
         $countries  = Country::get();
         return view('admin.englishSchools.edit',compact('englishSchool','countries'));
@@ -152,7 +152,7 @@ class EnglishSchoolController extends Controller
      */
     public function destroy(EnglishSchool $englishSchool)
     {
-        $this->CanDoAction('admin','delete-request-english-school');
+        $this->CanDoAction('admin','delete-requestenglishschool');
 
         $englishSchool->delete();
         Alert::error('Delete Operation','English School Has Deleted');

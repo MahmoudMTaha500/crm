@@ -17,9 +17,9 @@
 							</button>
 						</div>
                         <form action="{{route('english-school-request.index')}}" method="GET">
-                         @csrf 
+                         @csrf
                         <input type="hidden" name="filter" value="1">
-                     
+
 						<div class="modal-body">
                             <div class="row">
                                 <div class="col-6">
@@ -27,20 +27,20 @@
                                     <label for="" class="control-label mb-1"> Country:</label>
                                     <select name="country_id" id="country_id"  class="form-control">
                                         <option value=""> Chosse Country </option>
-                          
+
                                             @foreach($countries as $country)
-                                              <option  value="{{$country->id}}">{{$country->name}}</option>               
+                                              <option  value="{{$country->id}}">{{$country->name}}</option>
                                             @endforeach
                                       </select>
                                     </div>
                                 </div>
-                           
+
                                 <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> City:</label>
                                     <select name="city_id" id="city_id" class="form-control">
                                         <option value=""> Chosse City </option>
-                          
+
                                       </select>
                                     </div>
                                 </div>
@@ -53,13 +53,13 @@
                                         <option value="">Please Choose Place</option>
                                         @foreach ($englishSchools as $englishSchool)
                                         <option value="{{$englishSchool->id}}">{{$englishSchool->name}}</option>
-                                            
+
                                         @endforeach
-              
+
                                       </select>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Sales Man:</label>
@@ -67,9 +67,9 @@
                                         <option value="">Please Choose Sales Man</option>
                                         @foreach ($SalesMens as $SalesMan)
                                         <option value="{{$SalesMan->id}}">{{$SalesMan->name}}</option>
-                                            
+
                                         @endforeach
-              
+
                                       </select>
                                     </div>
                                 </div>
@@ -79,17 +79,17 @@
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Markter:</label>
                                     <select class="form-control"name="markter" id="">
-  
+
                                       <option value="">Please Choose  Markter</option>
                                       @foreach ($markters as $markter)
                                       <option value="{{$markter->id}}">{{$markter->name}}</option>
-      
+
                                       @endforeach
-      
+
                                       </select>
                                     </div>
                                 </div>
-                              
+
                                 <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Employees :</label>
@@ -97,9 +97,9 @@
                                         <option value="">Please Choose Employees </option>
                                         @foreach ($employees as $employee)
                                         <option value="{{$employee->name}}">{{$employee->name}}</option>
-                                            
+
                                         @endforeach
-              
+
                                       </select>
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
                                   <input type="email" name="email" class="form-control" placeholder="type E-Mail">
                                   </div>
                               </div>
-                          
+
                               <div class="col-6">
                                 <div class="form-group">
                                   <label for="" class="control-label mb-1"> Phone:</label>
@@ -152,7 +152,7 @@
                                   </div>
                               </div>
                           </div>
-                         
+
                           <div class="row">
                               <div class="col-6">
                                 <div class="form-group">
@@ -160,13 +160,13 @@
                                 <input   class="form-control" type="text" name="name" placeholder="Type Name Of Place ">
                                   </div>
                               </div>
-                          
+
                                 <div class="col-6">
                                   <div class="form-group">
                                     <label for="" class="control-label mb-1"> Status:</label>
                                     <select class="form-control "  name="status" id="">
                                       <option value="" selected> Chose Status </option>
-                           
+
                                       <option value="Applied"> Applied </option>
                                       <option value="Offer">  Offer</option>
                                       <option value="Visa letter requested">  Visa letter requested </option>
@@ -174,13 +174,13 @@
                                       <option value="Deferred"> Deferred</option>
                                       <option value="Started"> Started</option>
                                       <option value="Cancelled"> Cancelled</option>
-                                       
-              
+
+
                                       </select>
                                     </div>
                                 </div>
                             </div>
-                        
+
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -192,7 +192,7 @@
 				</div>
 			</div>
 			<!-- end modal medium -->
-  
+
             <div class="row">
       @include('admin.includes.errors')
 
@@ -202,29 +202,29 @@
                     @method('get')
                     <div class="row">
                     <div class="col-1">
-                       
+
 										<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#mediumModal">
 											Filter
 										</button>
-                     
+
 
                     </div>
                     <div class="col-2">
                         <a  href="{{route('english-school-request.excel')}}" class="btn btn-primary mb-2"> Excel Sheet All Requests</a>
                     </div>
-                 
-                   
-                   
-                
-       
+
+
+
+
+
 
                  <div class="col-4">
-                    <button  id="excel" class="btn btn-primary mb-2" onclick="excelSheet()"> Excel Sheet  </button>  
+                    <button  id="excel" class="btn btn-primary mb-2" onclick="excelSheet()"> Excel Sheet  </button>
                 </div>
 
                 </div>
-                 
-             
+
+
                     <div class="table-responsive table--no-card m-b-30">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
@@ -248,7 +248,7 @@
                                     <th>Sales Man</th>
                                     <th>Markter</th>
 
-                                    
+
 
                                     <th>Creator</th>
                                     <th>Date</th>
@@ -279,14 +279,14 @@
                                     <td>{{$request->markter->name ??  "---" }}</td>
 
                                     <td>{{$request->creator}}</td>
-                                  
 
-                                   
+
+
                                     <td>{{$request->created_at}}</td>
 
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('english-school-request.edit',$request->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -298,25 +298,25 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete This request')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
                                 </tr>
                              @endforeach
                              @endif
-                             @if($EnglishSchoolRequests->total() ==0) 
-                             <tr> 
+                             @if($EnglishSchoolRequests->total() ==0)
+                             <tr>
                                  <td colspan="12">
                                 Opps! no Data Found
-                            </td> 
+                            </td>
                            </tr>
                              @endif
                             </tbody>
@@ -326,13 +326,13 @@
                 </form>
 
                 </div>
-                {{$EnglishSchoolRequests->appends(request()->input())->links() }}
+                {{$EnglishSchoolRequests->appends(request()->input())->links('pagination::bootstrap-4') }}
 
             </div>
-      
+
 @endsection
 @section('admin.scripts')
- 
+
 <script>
 
   $("#country_id").change(function(){
@@ -353,7 +353,7 @@
     }
 });
 //   }
-  
+
   });
 
   $("#university_id").change(function(){
@@ -377,10 +377,10 @@
         // alert();
         if($(this).val()){
             alert(11);
-$('#to_date').removeAttr('disabled');      
+$('#to_date').removeAttr('disabled');
   }
   });
- 
+
 </script>
 
 @endsection

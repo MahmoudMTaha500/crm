@@ -33,7 +33,7 @@ class EnglishSchoolRequestsController extends Controller
      */
     public function index(Request $request)
     {
-        $this->CanDoAction('admin', 'show-request-english-school');
+        $this->CanDoAction('admin', 'show-requestenglishschool');
 
         if ($request->filter) {
             $country_id = $request->country_id;
@@ -114,7 +114,7 @@ class EnglishSchoolRequestsController extends Controller
      */
     public function create()
     {
-        $this->CanDoAction('admin', 'create-request-english-school');
+        $this->CanDoAction('admin', 'create-requestenglishschool');
         $salsmens = SalesMan::get();
         $EnglishSchools = EnglishSchool::get();
         $agencies = Agency::get();
@@ -240,7 +240,7 @@ class EnglishSchoolRequestsController extends Controller
      */
     public function edit(EnglishSchoolRequests $englishSchoolRequests,$id)
     {
-        $this->CanDoAction('admin', 'edit-request-english-school');
+        $this->CanDoAction('admin', 'edit-requestenglishschool');
 
         $englishSchoolRequests= EnglishSchoolRequests::find($id);
         $salsmens = SalesMan::get();
@@ -327,7 +327,7 @@ class EnglishSchoolRequestsController extends Controller
      */
     public function destroy(EnglishSchoolRequests $englishSchoolRequests)
     {
-        $this->CanDoAction('admin', 'delete-request-english-school');
+        $this->CanDoAction('admin', 'delete-requestenglishschool');
 
     }
 

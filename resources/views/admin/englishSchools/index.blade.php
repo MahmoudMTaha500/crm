@@ -17,9 +17,9 @@
                                 </button>
                             </div>
                             <form action="{{route('english-school.index')}}" method="GET">
-                             @csrf 
+                             @csrf
                             <input type="hidden" name="filter" value="1">
-                         
+
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-12">
@@ -27,9 +27,9 @@
                                         <label for="" class="control-label mb-1"> Country:</label>
                                         <select name="country_id" id="country_id"  class="form-control">
                                             <option value=""> Chosse Country </option>
-                              
+
                                                 @foreach($countries as $country)
-                                                  <option  value="{{$country->id}}">{{$country->name}}</option>               
+                                                  <option  value="{{$country->id}}">{{$country->name}}</option>
                                                 @endforeach
                                           </select>
                                         </div>
@@ -41,7 +41,7 @@
                                         <label for="" class="control-label mb-1"> City:</label>
                                         <select name="city_id" id="city_id" class="form-control">
                                             <option value=""> Chosse City </option>
-                              
+
                                           </select>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                             <option value=""> Chosse Type </option>
                                             <option value="1"> Institute </option>
                                             <option value="2">  University </option>
-                              
+
                                           </select>
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -85,7 +85,7 @@
                             Filter
                         </button>
                     </div>
-                   
+
                 </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -116,18 +116,18 @@
                                     <td>{{$place->name}}</td>
                                     <td>{{$place->country->name}}</td>
                                     <td>{{$place->city->name}}</td>
-                                   
+
                                     <td>{{$place->status}}</td>
-                                   
+
                                     <td>{{$place->duration}}</td>
                                     <td>{{$place->creator}}</td>
                                     <td>{{$place->start_date}}</td>
                                     <td>{{$place->end_date}}</td>
 
-                                    
+
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('english-school.edit',$place->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -136,14 +136,14 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete This place')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -153,14 +153,14 @@
                         </table>
                     </div>
                 </div>
-                {{$EnglishSchool->appends(request()->input())->links()}}
+                {{$EnglishSchool->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection
 
 @section('admin.scripts')
- 
+
 <script>
 
   $("#country_id").change(function(){
@@ -181,7 +181,7 @@
     }
 });
 //   }
-  
+
   });
 
   $('#from_date').change(function(){
@@ -189,10 +189,10 @@
         // alert();
         if($(this).val()){
             alert(11);
-$('#to_date').removeAttr('disabled');      
+$('#to_date').removeAttr('disabled');
   }
   });
- 
+
 </script>
 
 @endsection

@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="MessDetectorOptionsConfiguration">
-    <option name="transferred" value="true" />
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="PHPCSFixerOptionsConfiguration">
-    <option name="transferred" value="true" />
+  <component name="ChangeListManager">
+    <list default="true" id="2b76c6db-c528-4132-b5a2-422d3337a4ba" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/crm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnglishSchoolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnglishSchoolController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnglishSchoolRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnglishSchoolRequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UniversityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UniversityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UniversityRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UniversityRequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/agencies/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/agencies/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/banks/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/banks/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cities/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/countries/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/countries/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/employees/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/employees/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/englishSchoolRequests/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/englishSchoolRequests/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/englishSchools/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/englishSchools/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/includes/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/markters/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/markters/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/salesmans/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/salesmans/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/students/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/students/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/universities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/universities/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/universityRequests/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/universityRequests/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/visa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/visa/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/visaType/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/visaType/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PHPCodeSnifferOptionsConfiguration">
-    <option name="highlightLevel" value="WARNING" />
-    <option name="transferred" value="true" />
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/tools/php-cs-fixer/composer.json" />
+    </option>
   </component>
-  <component name="PhpIncludePathManager">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
@@ -170,16 +211,45 @@
       <path value="$PROJECT_DIR$/tools/php-cs-fixer/vendor/doctrine/annotations" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
-  <component name="PhpStanOptionsConfiguration">
-    <option name="transferred" value="true" />
+  <component name="ProjectId" id="2PVvvWPJPEI36dCCbcPQHEaegUo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PhpUnit">
-    <phpunit_settings>
-      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
-    </phpunit_settings>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
   </component>
-  <component name="PsalmOptionsConfiguration">
-    <option name="transferred" value="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b76c6db-c528-4132-b5a2-422d3337a4ba" name="Changes" comment="" />
+      <created>1683555293737</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683555293737</updated>
+      <workItem from="1683555294994" duration="5014000" />
+      <workItem from="1683623127062" duration="5476000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

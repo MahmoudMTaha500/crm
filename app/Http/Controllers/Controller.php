@@ -12,7 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected function CanDoAction($adminRole,$permissionUser){
-        if( auth()->user()->isAbleTo("$permissionUser") || auth()->user()->hasRole("$adminRole"))
+        if( auth()->user()->hasPermission($permissionUser) || auth()->user()->hasRole($adminRole))
         {
 
         }  else{

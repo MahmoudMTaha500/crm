@@ -325,7 +325,7 @@
                 </form>
 
                 </div>
-                {{$universityRequestss->appends(request()->input())->links() }}
+                {{$universityRequestss->appends(request()->input())->links('pagination::bootstrap-4') }}
 
             </div>
 
