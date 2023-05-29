@@ -180,6 +180,7 @@
                                     <th>Date</th>
                                     <th>Country</th>
                                     <th>Visa Type</th>
+                                    <th>Paid/Unpaid</th>
                                     <th>Fees</th>
                                     <th>Sales Man</th>
                                     <th>The Payment</th>
@@ -202,6 +203,8 @@
                                     <td>{{$visa->date}}</td>
                                     <td>{{$visa->country->name}}</td>
                                     <td>{{$visa->type->name ?? '---'}}</td>
+                                    <td>{{$visa->paid == 1 ? 'Paid' : 'Unpaid' }}</td>
+
                                     <td>{{$visa->fees}}</td>
                                     <td>{{$visa->salesman->name}}</td>
                                     <td>{{$visa->payment}}</td>

@@ -76,6 +76,7 @@ Route::group(['middleware' => ['role:employee|admin']], function(){
     Route::resource('student-request', StudentRequestController::class);
     Route::resource('university-request', UniversityRequestsController::class);
     Route::resource('english-school-request', EnglishSchoolRequestsController::class);
+    Route::resource('performance', PerformanceController::class);
 });
     //  ////////////////////////////End  admission/////////////////////////////////////////////
     //  ////////////////////////////Start  visa/////////////////////////////////////////////

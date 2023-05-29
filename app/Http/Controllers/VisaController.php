@@ -114,7 +114,6 @@ class VisaController extends Controller
      */
     public function store(Request $request)
     {
-
          Visa::create([
             'student_id'=>$request->student ,
             'date'=>$request->date ,
@@ -127,30 +126,38 @@ class VisaController extends Controller
             "other" => $request->other,
             "payment" => $request->payment,
             "status" => $request->status,
+            "paid" => $request->paid,
             'creator'=>auth()->user()->name,
         ]);
+        if($request->status =="Applied"){
+             if($request->paid){
+                 $key="Paid";
+
+             } else {
+                 $key="Unpaid";
+
+             }
+            $user_id = auth()->user()->id;
+            $salesman = $request->salesman;
+            $employeeBonus  = new PerformanceController();
+            $employeeBonus->AddBounces($user_id,$key);
+            $employeeBonus->AddBounces($salesman,$key);
+
+        }
         if($request->file){
-
-
         for($x=0;  $x < count($request->name_of_file)   ;$x++)
         {
-            //   dump($request->name_of_file[$x]);
               $media_name=$request->name_of_file[$x];
-
               $objfile =$request->file[$x];
-            //   dump( $objfile);
-
               $fileName = time() . $objfile->getClientOriginalName();
               $pathFile = public_path("storage/studentsMedia");
               $objfile->move($pathFile, $fileName);
               $fileNamePath = "storage/studentsMedia" . '/' . $fileName;
-
               Student_media::create([
                   'student_id'=> $request->student,
                   'media_name'=>$media_name,
                   'media_path'=> $fileNamePath,
               ]);
-
         }
     }
          Alert::success('Add  Opration','Visa Student Added Succssfully');
@@ -205,6 +212,7 @@ class VisaController extends Controller
         $visa->bank_id = $request->bank;
         $visa->transfer_bank_id = $request->transfer_bank;
         $visa->status = $request->status;
+        $visa->paid = $request->paid;
         $visa->other = $request->other;
         $visa->creator =auth()->user()->name;
         $visa->save();

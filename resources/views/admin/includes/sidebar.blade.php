@@ -233,6 +233,12 @@
                             <a href="{{route('employee.create')}}">Add Employee</a>
                         </li>
                         @endif
+                        @if(auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-employee'))
+
+                            <li class=" @if(Route::is('employee.show') )  active @endif ">
+                                <a href="{{route('performance.index')}}"> Employee Performance</a>
+                            </li>
+                        @endif
 
 
                     </ul>

@@ -156,7 +156,7 @@ class EnglishSchoolRequestsController extends Controller
                 'residence'=>$request->Residence[$x] ,
                 'creator'=>auth()->user()->name,
             ]);
-            if($request->status[$x] =="Confirmed / CAS"){
+            if($request->status[$x] =="Started"){
                 $request->validate([
                     'fees'=>'required'
                 ]);
@@ -168,12 +168,15 @@ class EnglishSchoolRequestsController extends Controller
                     "remain" => $request->fees[$x],
                     "status_paied" => 'panding',
                     "status_followed" => 'not follow',
-
                     'creator'=>auth()->user()->name,
-
-
-
                 ]);
+
+                $user_id = auth()->user()->id;
+                $key=Student::find($request->student)->student_type;
+                $salesman = $request->salesman;
+                $employeeBonus  = new PerformanceController();
+                $employeeBonus->AddBounces($user_id,$key,$englishSchool_id->id,'institute');
+                $employeeBonus->AddBounces($salesman,$key,$englishSchool_id->id,'institute');
 
             }
 
@@ -278,7 +281,10 @@ class EnglishSchoolRequestsController extends Controller
         $EnglishSchoolRequests->fees=$request->fees;
         $EnglishSchoolRequests->course=$request->course;
         $EnglishSchoolRequests->save();
-        if($request->status =="Confirmed / CAS"){
+
+        $employeeBonusCheck  = new PerformanceController();
+
+        if($request->status =="Started"){
             $request->validate([
                 'fees'=>'required'
             ]);
@@ -292,6 +298,15 @@ class EnglishSchoolRequestsController extends Controller
                 "status_followed" => 'not follow',
                 'creator'=>auth()->user()->name,
             ]);
+
+            $user_id = auth()->user()->id;
+            $key=Student::find($request->student)->student_type;
+            $salesman = $request->salesman;
+            $employeeBonusCheck->AddBounces($user_id,$key,$id,'institute');
+            $employeeBonusCheck->AddBounces($salesman,$key,$id,'institute');
+        } else {
+
+            $employeeBonusCheck->CheckTheBouncesIsValid( $id ,'institute');
 
         }
         if($request->file){

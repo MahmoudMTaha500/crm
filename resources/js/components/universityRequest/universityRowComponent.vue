@@ -1,13 +1,13 @@
 <template>
     <!-- <div> </div> -->
     <div style="border: 1px #17a2b8 solid; padding:5px; border-radius:5px">
-        
+
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">
-                        <label class="typo__label">Select with search</label>
+                        <label class="typo__label">Choose University</label>
                         <multiselect v-model="uni_seleceted"   :value="id" :options="universities"   @select="changeSelect" placeholder="Select University" label="name" track-by="name"> </multiselect>
-                    
+
                     </div>
                 </div>
                     <input type="hidden"  name="uni_val[]" :value="id" >
@@ -19,9 +19,9 @@
                         <select name="agency_val[]" id="" class="form-control">
                             <option value="" selected> Chose agency </option>
 
-                          <option v-for="agency in agencyUni" :key="agency.id" :value="agency.id"> {{agency.name}} </option>  
+                          <option v-for="agency in agencyUni" :key="agency.id" :value="agency.id"> {{agency.name}} </option>
                         </select>
-                       
+
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
                 <div class="col-2">
                           <div class="form-group">
                         <label for="" class="control-label mb-1"> Start Date :</label>
-                     
+
                         <input class="form-control" type="date" name="start_date[]" id=""  placeholder="Type Academic year">
                     </div>
 
@@ -82,12 +82,12 @@
                                 <input  name="to_visa" type="checkbox"    class="form-control"  value="1" >
                                 </div>
                             </div>
-                
-           
+
+
             </div>
 
             <!-- <Contents v-for="count in totalCount" :key="`component-${count}`" /> -->
-    
+
     </div>
 </template>
 <script>
@@ -131,13 +131,13 @@
                 axios.get(this.agency_route).then((response) => (this.agencies = response.data));
             },
             changeSelect(value, id) {
-                this.id = value.id;
-                this.uni_seleceted = value.name+this.totalCount;
+                // this.id = value.id;
+                // this.uni_seleceted = value.name+this.totalCount;
                 // alert(this.id)
                       this.isLoading = true;
                 axios.get(this.route_get_agency,{
                     params:{
-                  uni_id:this.id
+                  uni_id: value.id
                     },
                 }
                 ).then((response) => {
@@ -159,7 +159,7 @@
       this.value.push({ count: '' });
     },
     isDisabled(){
- alert(this.status_)
+
  if(this.status_=="Confirmed / CAS"){
 return true;
  }
@@ -173,7 +173,7 @@ this.fees='';
 return true;
 
 
- }  
+ }
     }
         },
     };

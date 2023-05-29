@@ -14,11 +14,11 @@
         @csrf
       @include('admin.includes.errors')
 
-       
-       
+
+
       <div class="row">
-       
-          <div class="col-12">
+
+          <div class="col-6">
             <div class="form-group">
             <label for="" class="control-label mb-1"> Students :</label>
               <select  name="student" class="form-control selectpicker"    data-live-search="true" id="">
@@ -27,7 +27,14 @@
                 @endforeach
               </select>
 
-            </div>  
+            </div>
+          </div>
+          <div class="col-1">
+              <div class="form-group">
+                  <label for="paid" class="control-label mb-1"> Paid :</label>
+                  <input type="checkbox" class="form-control" name="paid" id="paid" value="1">
+
+              </div>
           </div>
       </div>
 
@@ -38,7 +45,7 @@
                     <option value=""> Chosse Country </option>
 
                     @foreach($countries as $country)
-                    <option  value="{{$country->id}}">{{$country->name}}</option>               
+                    <option  value="{{$country->id}}">{{$country->name}}</option>
                     @endforeach
                     </select>
                 </div>
@@ -46,9 +53,9 @@
                 <div class="form-group">
                     <label for="cc-payment" class="control-label mb-1">Date :</label>
                     <input  name="date" type="date" class="form-control" required  value="" >
-                </div> 
                 </div>
-          </div>  
+                </div>
+          </div>
           <div class="row">
                 <div class="col-6">
                     <label for="cc-payment" class="control-label mb-1">Visa Type:</label>
@@ -56,7 +63,7 @@
                     <option value=""> Chosse Visa Type </option>
 
                     {{-- @foreach($types as $type)
-                    <option  value="{{$type->id}}">{{$type->name}}</option>               
+                    <option  value="{{$type->id}}">{{$type->name}}</option>
                     @endforeach --}}
                     </select>
                 </div>
@@ -64,9 +71,9 @@
                 <div class="form-group">
                     <label for="cc-payment" class="control-label mb-1">Fees :</label>
                     <input  name="fees" type="number" class="form-control" required  value=""  placeholder="Enter The Amount Of Fees">
-                </div> 
                 </div>
-          </div>  
+                </div>
+          </div>
           <div class="row">
                 <div class="col-6">
                   <label for="cc-payment" class="control-label mb-1">ٍSalesMen :</label>
@@ -87,9 +94,9 @@
                       <option value="Sat Acc">Sat Acc</option>
                       <option value="Client Acc">Client Acc</option>
                       </select>
-                    </div> 
+                    </div>
                 </div>
-          </div>  
+          </div>
           <div class="row">
                 <div class="col-6">
                   <label for="cc-payment" class="control-label mb-1">Banks :</label>
@@ -109,13 +116,13 @@
                     <option value="">Please Choose  Banks</option>
                     @foreach ($banks as $bank)
                     <option value="{{$bank->id}}">{{$bank->name}}</option>
-  
+
                     @endforeach
-  
+
                     </select>
-                    </div> 
+                    </div>
                 </div>
-          </div>  
+          </div>
                      <div class="row" id="row_file">
                       <div class="col-6">
                         <div class="form-group">
@@ -127,20 +134,20 @@
                         <div class="form-group">
                           <label for="cc-payment" class="control-label mb-1">File :</label>
                           <input  name="file[]" type="file" class="form-control" required  value="">
-                       
-                          </div> 
+
+                          </div>
                         </div>
 
                           <div class="col-1">
                             <div class="form-group">
-                              <button type="button" id="add_ele" class="   btn btn-primary" style="margin-top: 30px;"><i class="fa fa-plus"></i></button>                         
-                              </div> 
-             
+                              <button type="button" id="add_ele" class="   btn btn-primary" style="margin-top: 30px;"><i class="fa fa-plus"></i></button>
                               </div>
-                   
+
+                              </div>
+
                           </div>
 
-                      
+
 
                      <div class="row">
                       <div class="col-6">
@@ -154,8 +161,8 @@
                             <option value="Applied"> Applied </option>
                             <option value="Issued"> Issued  </option>
                             <option value="Rejected"> Rejected </option>
-                           
-  
+
+
                           </select>
                           </div>
                       </div>
@@ -165,17 +172,17 @@
                                <textarea class="form-control" name="other" id="" cols="10" rows="3"></textarea>
                           </div>
                       </div>
-                      
-                      
-                   
+
+
+
                   </div>
 
 
 
-            
-        
-            
-           
+
+
+
+
 
 
     <div>
@@ -194,7 +201,7 @@
 
 
 @section('admin.scripts')
-  
+
 
 
 

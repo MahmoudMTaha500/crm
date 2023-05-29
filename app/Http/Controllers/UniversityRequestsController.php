@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\universityRequests;
 use Illuminate\Http\Request;
 use App\University;
@@ -21,6 +22,7 @@ use App\Exports\ExcelSheet;
 use App\Markter;
 use App\Visa;
 use App\financeUniversity;
+use App\Http\Controllers\PerformanceController;
 class UniversityRequestsController extends Controller
 {
     /**
@@ -172,13 +174,9 @@ $useVue=true;
      */
     public function store(UniversityRequest $request)
     {
-// dd($request->all());
-                $counter = count($request->count);
+
+         $counter = count($request->count);
         for($x=0;  $x < $counter; $x++){
-
-
-
-
            $uni_request=   universityRequests::create([
                 'student_id'=>$request->student,
                 'university_id'=>$request->uni_val[$x] ,
@@ -197,7 +195,6 @@ $useVue=true;
                 $request->validate([
                     'fees'=>'required'
                 ]);
-
                 financeUniversity::create([
                     "request_id" =>$uni_request->id,
                     "total" => $request->fees[$x],
@@ -205,13 +202,14 @@ $useVue=true;
                     "remain" => $request->fees[$x],
                     "status_paied" => 'panding',
                     "status_followed" => 'not follow',
-
                     'creator'=>auth()->user()->name,
-
-
-
                 ]);
-
+                $user_id = auth()->user()->id;
+                $key=$request->kind_of_course[$x];
+                $salesman = $request->salesman;
+                $employeeBonus  = new PerformanceController();
+                 $employeeBonus->AddBounces($user_id,$key,$uni_request->id,'university');
+                $employeeBonus->AddBounces($salesman,$key,$uni_request->id,'university');
             }
 
             if($request->to_visa){
@@ -301,8 +299,7 @@ $useVue=true;
      */
     public function update(Request $request, universityRequests $universityRequests,$id)
     {
-        // dump($request->all());
-        // dd($id);
+
         $universityRequests= universityRequests::find($id);
 
 
@@ -338,10 +335,18 @@ $useVue=true;
 
     }
 
+        $employeeBonusCheck  = new PerformanceController();
+
+
     if($request->status =="Confirmed / CAS"){
         $request->validate([
             'fees'=>'required'
         ]);
+        $user_id = auth()->user()->id;
+        $key=$request->kind_of_course;
+        $salesman = $request->salesman;
+        $employeeBonusCheck->AddBounces($user_id,$key,$id,'university');;
+        $employeeBonusCheck->AddBounces($salesman,$key,$id,'university');;
 
         financeUniversity::create([
             "request_id" =>$universityRequests->id,
@@ -356,6 +361,11 @@ $useVue=true;
 
 
         ]);
+    } else
+    {
+        financeUniversity::where('request_id',$id)->delete();
+
+        $employeeBonusCheck->CheckTheBouncesIsValid( $id ,'university');
     }
 
     Alert::success('Update  Opration','Student Request University  Updated Succssfully');

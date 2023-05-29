@@ -1,25 +1,25 @@
 <template>
     <!-- <div> </div> -->
     <div style="border: 1px #17a2b8 solid; padding:5px; border-radius:5px">
-        
+
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">
                         <label class="typo__label">Select with search</label>
                         <multiselect v-model="englishSchoolSelected"   :value="id" :options="englishSchools"   @select="changeSelect" placeholder="Select English School " label="name" track-by="name"> </multiselect>
-                    
+
                     </div>
                 </div>
                     <input type="hidden"  name="englishschool[]" :value="id" >
 
-            
+
 
                 <div class="col-6">
                     <div class="form-group">
                         <label for="" class="control-label mb-1"> Status :</label>
                         <select  name="status[]" id="" class="form-control" @change="isDisabled"  @input="updateForm('status_',$event.target.value)" v-value="form.status_">
                             <option value="" selected> Chose Status </option>
-                           
+
                             <option value="Applied"> Applied </option>
                             <option value="Offer">  Offer</option>
                             <option value="Visa letter requested">  Visa letter requested </option>
@@ -27,7 +27,7 @@
                             <option value="Deferred"> Deferred</option>
                             <option value="Started"> Started</option>
                             <option value="Cancelled"> Cancelled</option>
-                            
+
                         </select>
                     </div>
                 </div>
@@ -61,15 +61,15 @@
                         </select>
                     </div>
                 </div>
-              
+
                 <div class="col-3">
                     <div class="form-group">
                         <label for="" class="control-label mb-1">Note Courses :</label>
                         <textarea class="form-control" name="note_course[]" id="" cols="10" rows="2"> </textarea>
                     </div>
                 </div>
-                
-           
+
+
             </div>
             <div class="row">
                 <div class="col-3">
@@ -116,7 +116,7 @@
             </div>
 
             <!-- <Contents v-for="count in totalCount" :key="`component-${count}`" /> -->
-    
+
     </div>
 </template>
 <script>
@@ -165,7 +165,7 @@
             },
             changeSelect(value, id) {
                 this.id = value.id;
-                this.englishSchoolSelected = value.name+this.totalCount;
+                // this.englishSchoolSelected = value.name+this.totalCount;
                 // alert(this.id)
                       this.isLoading = true;
                 axios.get(this.route_get_agency,{
@@ -192,12 +192,12 @@
       this.value.push({ count: '' });
     },
     isDisabled(){
- if(this.status_=="Confirmed / CAS"){
+ if(this.form.status_=="Started"){
 return true;
  }
     },
     able_to(){
-       if(this.status_=="Confirmed / CAS"){
+       if(this.form.status_=="Started"){
 return false;
  } else{
 this.fees='';
@@ -205,13 +205,13 @@ this.fees='';
 return true;
 
 
- }  
+ }
     },
     updateForm (input, value) {
         this.form[input] = value;
          let storedForm = this.openStorage() // extract stored form
       if (!storedForm) storedForm = {} // if none exists, default to empty object
-    
+
       storedForm[input] = value // store new value
       this.saveStorage(storedForm) // save changes into localStorage
       }
