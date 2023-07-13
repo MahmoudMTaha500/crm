@@ -139,8 +139,6 @@ class EnglishSchoolRequestsController extends Controller
                 'fees'=>'required'
             ]);
         }
-
-
        $englishSchool_id=  EnglishSchoolRequests::create([
                 'student_id'=>$request->student,
                 'englishSchool_id'=>$request->englishschool[$x] ,
@@ -156,11 +154,10 @@ class EnglishSchoolRequestsController extends Controller
                 'residence'=>$request->Residence[$x] ,
                 'creator'=>auth()->user()->name,
             ]);
-            if($request->status[$x] =="Confirmed / CAS"){
+            if($request->status[$x] =="Started"){
                 $request->validate([
                     'fees'=>'required'
                 ]);
-
                 EnglishSchoolFinance::create([
                     "request_id" =>$englishSchool_id->id,
                     "total" => $request->fees[$x],
@@ -168,17 +165,16 @@ class EnglishSchoolRequestsController extends Controller
                     "remain" => $request->fees[$x],
                     "status_paied" => 'panding',
                     "status_followed" => 'not follow',
-
                     'creator'=>auth()->user()->name,
-
-
-
                 ]);
-
+                $user_id = auth()->user()->id;
+                $key=Student::find($request->student)->student_type;
+                $salesman = $request->salesman;
+                $employeeBonus  = new PerformanceController();
+                $employeeBonus->AddBounces($user_id,$key,$englishSchool_id->id,'institute');
+                $employeeBonus->AddBounces($salesman,$key,$englishSchool_id->id,'institute');
             }
-
             if($request->to_visa){
-
                 $country =EnglishSchool::where('id',$request->englishschool[$x])->get();
               //   dd( $country[0]->country_id);
 
@@ -187,9 +183,9 @@ class EnglishSchoolRequestsController extends Controller
                       'date'=>0,
                       'type_id'=>0 ,
                       'salesman_id'=>$request->salesman ,
-                      'fees'=>0 ,
-                      'country_id'=>$country[0]->country_id,
-                      'bank_id'=>0 ,
+                      'feuntry_id'=>$country[0]->country_id,
+                      'baes'=>0 ,
+                      'conk_id'=>0 ,
                       'transfer_bank_id'=>0 ,
                       "other" => '---',
                       "payment" => '---',
@@ -262,7 +258,6 @@ class EnglishSchoolRequestsController extends Controller
      */
     public function update(Request $request, EnglishSchoolRequests $englishSchoolRequests,$id)
     {
-        // dd($request->all());
 
         $EnglishSchoolRequests= EnglishSchoolRequests::find($id);
 
@@ -278,7 +273,10 @@ class EnglishSchoolRequestsController extends Controller
         $EnglishSchoolRequests->fees=$request->fees;
         $EnglishSchoolRequests->course=$request->course;
         $EnglishSchoolRequests->save();
-        if($request->status =="Confirmed / CAS"){
+
+        $employeeBonusCheck  = new PerformanceController();
+
+        if($request->status =="Started"){
             $request->validate([
                 'fees'=>'required'
             ]);
@@ -292,6 +290,15 @@ class EnglishSchoolRequestsController extends Controller
                 "status_followed" => 'not follow',
                 'creator'=>auth()->user()->name,
             ]);
+
+            $user_id = auth()->user()->id;
+            $key=Student::find($EnglishSchoolRequests->student_id)->student_type;
+            $salesman = $request->salesman;
+            $employeeBonusCheck->AddBounces($user_id,$key,$id,'institute');
+            $employeeBonusCheck->AddBounces($salesman,$key,$id,'institute');
+        } else {
+
+            $employeeBonusCheck->CheckTheBouncesIsValid( $id ,'institute');
 
         }
         if($request->file){

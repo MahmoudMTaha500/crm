@@ -16,12 +16,20 @@ class EmployeesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       $this->CanDoAction('admin','show-employee');
+        if($request->filter){
+            $name = $request->name;
+            $admins = new User;
+            if($name){
+                $admins = $admins->where('name','LIKE',"%{$name}%");
+            }
+            $admins=   $admins->orderBy('id', 'DESC')->paginate(10);
+        } else{
+            $admins = User::orderBy('id', 'DESC')->paginate(10);
 
-        $admins = User::orderBy('id', 'DESC')->paginate(10);
-//        dd($admins);
+        }
         return view("admin.employees.index",compact('admins'));
     }
 

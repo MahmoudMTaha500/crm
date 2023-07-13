@@ -17,9 +17,9 @@
                                 </button>
                             </div>
                             <form action="{{route('finance-english-school.index')}}" method="GET">
-                             @csrf 
+                             @csrf
                             <input type="hidden" name="filter" value="1">
-                         
+
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-6">
@@ -27,9 +27,9 @@
                                         <label for="" class="control-label mb-1"> Country:</label>
                                         <select name="country_id" id="country_id"  class="form-control">
                                             <option value=""> Chosse Country </option>
-                              
+
                                                 @foreach($countries as $country)
-                                                  <option  value="{{$country->id}}">{{$country->name}}</option>               
+                                                  <option  value="{{$country->id}}">{{$country->name}}</option>
                                                 @endforeach
                                           </select>
                                         </div>
@@ -41,16 +41,16 @@
                                             <option value="">Please Choose Place</option>
                                             @foreach ($EnglishSchools as $englishSchool)
                                             <option value="{{$englishSchool->id}}">{{$englishSchool->name}}</option>
-                                                
+
                                             @endforeach
-                  
+
                                           </select>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
-                                  
+
                                     <div class="col-6">
                                       <div class="form-group">
                                         <label for="" class="control-label mb-1"> Name:</label>
@@ -66,9 +66,9 @@
                                             <option value="">Please Choose Sales Man</option>
                                             @foreach ($SalesMens as $SalesMan)
                                             <option value="{{$SalesMan->id}}">{{$SalesMan->name}}</option>
-                                                
+
                                             @endforeach
-                  
+
                                           </select>
                                         </div>
                                     </div>
@@ -76,17 +76,17 @@
                                       <div class="form-group">
                                         <label for="" class="control-label mb-1"> Markter:</label>
                                         <select class="form-control"name="markter" id="">
-      
+
                                           <option value="">Please Choose  Markter</option>
                                           @foreach ($markters as $markter)
                                           <option value="{{$markter->id}}">{{$markter->name}}</option>
-          
+
                                           @endforeach
-          
+
                                           </select>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
@@ -117,19 +117,19 @@
                                     </div> <div class="col-4">
                                       <div class="form-group">
                                         <label for="" class="control-label mb-1"> By Year:</label>
-                                        
+
                                         <select id="year" class="form-control" name="year">
                                           <option  value="0" selected>Choose Year</option>
 
                                         </select>
-                                        
+
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
                                 <div class="row">
-                                
+
                                   <div class="col-6">
                                     <div class="form-group">
                                       <label for="" class="control-label mb-1"> Employees :</label>
@@ -137,9 +137,9 @@
                                           <option value="">Please Choose Employees </option>
                                           @foreach ($employees as $employee)
                                           <option value="{{$employee->name}}">{{$employee->name}}</option>
-                                              
+
                                           @endforeach
-                
+
                                         </select>
                                       </div>
                                   </div>
@@ -147,11 +147,11 @@
                                     <div class="form-group">
                                       <label for="" class="control-label mb-1"> Remain:</label>
                                       <input type="number" name="remain" class="form-control" placeholder="type Reamin">
-    
+
                                       </div>
                                   </div>
                               </div>
-                             
+
                               <div class="row">
                                   <div class="col-6">
                                     <div class="form-group">
@@ -162,9 +162,9 @@
                                         <option   value="Following and Pending response">Following and Pending response</option>
                                         <option   value="Followed">Followed</option>
                                         </select>
-                                  </div> 
                                   </div>
-                              
+                                  </div>
+
                                     <div class="col-6">
                                       <div class="form-group">
                                         <label for="cc-payment" class="control-label mb-1">Status Paied :</label>
@@ -174,10 +174,10 @@
                                           <option   value="Partially Paid">Partially Paid</option>
                                           <option  value="All commission paid">All commission paid</option>
                                           </select>
-                                    </div> 
+                                    </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -191,7 +191,7 @@
                 <!-- end modal medium -->
 
                 			<!-- modal small -->
-		
+
 			<!-- end modal small -->
                 <div class="row">
                     <div class="col-1">
@@ -202,7 +202,7 @@
                     <div class="col-9 text-center">
                     <H2  style="color: #0c3386">  English School Requests Finance </H2>
                   </div>
-                   
+
                 </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -231,11 +231,11 @@
                                     <th>Commission  received</th>
                                     <th>Commission  Remain</th>
                                     <th>Commission  percentage</th>
-                                    
+
                                     <th>Commission  Details</th>
                                     <th>Sales man </th>
                                     <th>Markter </th>
-                                  
+
                                     <th>English School Note </th>
                                     <th>Sat Note </th>
                                     <th>Status Paied </th>
@@ -245,10 +245,10 @@
                                 </tr>
                             </thead>
 
-                           
+
                             <tbody>
                                 @foreach($EnglishSchoolFinance as $finance)
-                               
+
                                 <div class="modal fade" id="smallmodal-{{$finance->id}}" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-sm" role="document">
                                     <div class="modal-content">
@@ -272,7 +272,7 @@
                                      <p >
                                      there are no Commissions Here </p>
                                      @endif
-                                       
+
                                       </div>
 
                                       <div class="modal-footer">
@@ -307,29 +307,29 @@
                                     <td>{{$finance->commission_remain}}</td>
                                     <td>{{$finance->commission_percentage}}</td>
 
-                                    <td class="text-center"> 
+                                    <td class="text-center">
                                         <!-- Button trigger modal -->
 										<button type="button" class="btn btn-primary  "  data-toggle="modal" data-target="#smallmodal-{{$finance->id}}">
-										
-                                        <i class="fas fa-eye"></i> 
+
+                                        <i class="fas fa-eye"></i>
 										</button>
-                                    
+
                                     </td>
                                     <td>{{$finance->request_institute->salesman->name}}</td>
-                                    <td>{{$finance->request_institute->markter->name}}</td>
+                                    <td>{{$finance->request_institute->markter->name ?? '---'}}</td>
 
-                                   
+
                                     <td>{{$finance->english_school_note}}</td>
                                     <td>{{$finance->sat_note}}</td>
-                     
 
-                                    
+
+
                                     <td>{{$finance->status_paied}}</td>
                                     <td>{{$finance->status_followed}}</td>
                                     <td>{{$finance->creator}}</td>
                                   <td>
                                     <div class="table-data-feature">
-                                       
+
                                         <a href="{{route('finance-english-school.edit',$finance->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
@@ -341,14 +341,14 @@
                                             @method('delete')
 
 
-                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete" 
+                                        <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
                                         onclick="return confirm('Are u Sure For Delete This finance')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
                                     </form>
 
-                                        
+
                                     </div>
 
                                     </td>
@@ -361,10 +361,10 @@
                 {{$EnglishSchoolFinance->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-      
+
 @endsection
 @section('admin.scripts')
- 
+
 <script>
 
   $("#country_id").change(function(){
@@ -385,7 +385,7 @@
     }
 });
 //   }
-  
+
   });
 
   $("#university_id").change(function(){
@@ -408,10 +408,10 @@
         // alert(1111);
         // alert();
         if($(this).val()){
-$('#to_date').removeAttr('disabled');      
+$('#to_date').removeAttr('disabled');
   }
   });
- 
+
 
 
 
@@ -419,10 +419,10 @@ $( document ).ready(function() {
 
 this.years = function(startYear) {
     var currentYear = new Date().getFullYear(), years = [];
-    startYear = startYear || 1980;  
+    startYear = startYear || 1980;
     while ( startYear <= currentYear ) {
         years.push(startYear++);
-    }   
+    }
 
     return years;
 }
@@ -446,5 +446,5 @@ console.log( years);
 
 // console.log( this.years(2019-20));
 </script>
- 
+
 @endsection

@@ -29,6 +29,8 @@ class CreateVisasTable extends Migration
             // $table->foreign('transfer_bank_id')->references('id')->on('banks')->onDelete('cascade');
 
             $table->string('date');
+            $table->smallInteger('paid')->default(0)->nullable();
+
             $table->integer('fees');
             $table->string('payment');
             $table->string('other')->nullable();
