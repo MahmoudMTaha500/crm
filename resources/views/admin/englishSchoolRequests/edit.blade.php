@@ -105,7 +105,7 @@
                 <div class="col-3">
                     <div class="form-group">
                         <label for="" class="control-label mb-1">Note Courses :</label>
-                        <textarea class="form-control" name="note_course" id="" cols="10" rows="2"> {{$englishSchoolRequests->note_course}}</textarea>
+                        <textarea class="form-control" name="note_course" id="" cols="10" rows="2"> {{$englishSchoolRequests->text_note}}</textarea>
                     </div>
                 </div>
 

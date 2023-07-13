@@ -21,7 +21,7 @@
           <div class="col-6">
             <div class="form-group">
             <label for="" class="control-label mb-1"> Students :</label>
-              <select  name="student" class="form-control selectpicker"    data-live-search="true" id="">
+              <select  name="student" class="form-control "    data-live-search="true" id="">
               @foreach($students as  $student)
                 <option   value="{{$student->id}}">{{$student->name}}</option>
                 @endforeach

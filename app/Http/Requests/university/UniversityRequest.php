@@ -31,7 +31,7 @@ class UniversityRequest extends FormRequest
             "kind_of_course"=>"required",
             "start_date"=>"required",
             "salesman"=>"required",
-           
+
 
         ];
     }
@@ -45,13 +45,13 @@ class UniversityRequest extends FormRequest
             ],
 
             'agency_val.*' => ['required'=>"   Agency Is Required "],
-            
+
             'kind_of_course.required'=>"   Kind Of Course  Is Required ",
             'start_date.required'=>"   Start Date Is Required ",
             'status.required'=>"   status Is Required ",
             'salesman.required'=>"       Sales Man is Required ",
-  
-        
+
+
 
         ];
     }

@@ -76,7 +76,7 @@
                                 <tr>
                                     <td>{{$per->id}}</td>
                                     <td>{{$per->user->name}}</td>
-                                    <td>{{$per->user->department}}</td>
+                                    <td>{{$per->user->department ?? 'Admin'}}</td>
                                     <td>{{$per->key}}</td>
                                     <td>{{$per->type}}</td>
                                     <td>{{$per->counter}}</td>

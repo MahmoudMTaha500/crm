@@ -174,7 +174,7 @@ $useVue=true;
      */
     public function store(UniversityRequest $request)
     {
-
+//dd($request->all());
          $counter = count($request->count);
         for($x=0;  $x < $counter; $x++){
            $uni_request=   universityRequests::create([

@@ -104,6 +104,7 @@ class PerformanceController extends Controller
 
      $getPerformance = Performance::where('user_id',$user_id)->where('key',$key)->get()->first();
      if(!$getPerformance){
+
          return Performance::create([
                'request_id'=>$request_id,
                'user_id'=>$user_id,

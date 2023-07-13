@@ -131,7 +131,7 @@
                 axios.get(this.agency_route).then((response) => (this.agencies = response.data));
             },
             changeSelect(value, id) {
-                // this.id = value.id;
+                this.id = value.id;
                 // this.uni_seleceted = value.name+this.totalCount;
                 // alert(this.id)
                       this.isLoading = true;

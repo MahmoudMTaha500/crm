@@ -318,7 +318,7 @@
 
                                     </td>
                                     <td>{{$finance->request_uni->salesman->name}}</td>
-                                    <td>{{$finance->request_uni->markter->name}}</td>
+                                    <td>{{$finance->request_uni->markter->name ?? '---'}}</td>
 
 
                                     <td>{{$finance->university_note}}</td>

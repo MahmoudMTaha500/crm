@@ -114,7 +114,7 @@ class VisaController extends Controller
      */
     public function store(Request $request)
     {
-         Visa::create([
+       $visa =    Visa::create([
             'student_id'=>$request->student ,
             'date'=>$request->date ,
             'type_id'=>$request->type ,
@@ -140,8 +140,8 @@ class VisaController extends Controller
             $user_id = auth()->user()->id;
             $salesman = $request->salesman;
             $employeeBonus  = new PerformanceController();
-            $employeeBonus->AddBounces($user_id,$key);
-            $employeeBonus->AddBounces($salesman,$key);
+            $employeeBonus->AddBounces($user_id,$key,$visa->id,'Visa');
+            $employeeBonus->AddBounces($salesman,$key,$visa->id,'Visa');
 
         }
         if($request->file){

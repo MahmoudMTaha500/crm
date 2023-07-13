@@ -167,6 +167,7 @@
                 this.id = value.id;
                 // this.englishSchoolSelected = value.name+this.totalCount;
                 // alert(this.id)
+
                       this.isLoading = true;
                 axios.get(this.route_get_agency,{
                     params:{
