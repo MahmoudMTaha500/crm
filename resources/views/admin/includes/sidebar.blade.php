@@ -254,7 +254,7 @@
                         <li class=" @if(Route::is('visa.index') )  active @endif ">
                             <a href="{{route('visa.index')}}"> All Visa</a>
                         </li>
-                        @if(auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-employee'))
+                        @if(auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-visa'))
 
                         <li class=" @if(Route::is('visa.create') )  active @endif ">
                             <a href="{{route('visa.create')}}">Add Visa</a>
