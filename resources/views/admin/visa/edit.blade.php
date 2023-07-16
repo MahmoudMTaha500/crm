@@ -101,7 +101,7 @@
           </div>
           <div class="row">
                 <div class="col-6">
-                  <label for="cc-payment" class="control-label mb-1">Banks :</label>
+                  <label for="cc-payment" class="control-label mb-1"> Sat Banks :</label>
                   <select class="form-control"name="bank" id="">
                   <option value="">Please Choose  Banks</option>
                   @foreach ($banks as $bank)
