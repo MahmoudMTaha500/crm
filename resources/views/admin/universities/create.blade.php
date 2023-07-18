@@ -13,8 +13,8 @@
     <form action="{{route('university.store')}}" method="post" novalidate="novalidate">
         @csrf
       @include('admin.includes.errors')
-       
-       
+
+
         <div class="row">
           <div class="col-6">
             <div class="form-group">
@@ -25,17 +25,17 @@
           <div class="col-6">
             <div class="form-group">
               <label for="cc-payment" class="control-label mb-1">Agencies:</label>
-            <select name="agency_id[]" id="" class="form-control selectpicker" multiple   data-live-search="true" >
+            <select name="agency_id[]" id="" class="select2-placeholder-multiple form-control" multiple="multiple" >
               <option value=""> Chosse Agency </option>
 
               @foreach($Agencies as $agency)
-              <option  value="{{$agency->id}}">{{$agency->name}}</option>               
+              <option  value="{{$agency->id}}">{{$agency->name}}</option>
             @endforeach
             </select>
-              </div> 
+              </div>
 
           </div>
-       
+
                </div>
 
         <div class="row">
@@ -46,10 +46,10 @@
               <option value=""> Chosse Country </option>
 
                   @foreach($countries as $country)
-                    <option  value="{{$country->id}}">{{$country->name}}</option>               
+                    <option  value="{{$country->id}}">{{$country->name}}</option>
                   @endforeach
             </select>
-              </div> 
+              </div>
 
           </div>
           <div class="col-6">
@@ -59,9 +59,9 @@
               <option value=""> Chosse City </option>
 
             </select>
-              </div> 
+              </div>
           </div>
-       
+
                </div>
 
                {{-- <div class="row">
@@ -82,7 +82,7 @@
 
                       <option value="Rejected"> Rejected</option>
                       <option value="Withdrawn"> Withdrawn</option>
-                  
+
                     </select>
                     </div>
                 </div>
@@ -91,10 +91,10 @@
                     <label for="cc-payment" class="control-label mb-1">Note :</label>
                 <textarea type="text" name="note" id="" class="form-control"   cols="10" rows="2" >
                 </textarea>
-                    </div> 
-      
+                    </div>
+
                 </div>
-             
+
                      </div> --}}
 
                      {{-- <div class="row">
@@ -103,15 +103,15 @@
                         <div class="form-group">
                           <label for="cc-payment" class="control-label mb-1">Academic Year:</label>
                       <input type="text" name="academic_year" id="" class="form-control"  value="" placeholder="typing Academic Year">
-                          </div> 
-            
+                          </div>
+
                       </div>
                      </div> --}}
 
-            
-        
-            
-           
+
+
+
+
 
 
     <div>
@@ -128,7 +128,7 @@
     </div>
 @endsection
 @section('admin.scripts')
- 
+
 <script>
 
   $("#country_id").change(function(){
@@ -147,9 +147,9 @@
     }
 });
   }
-  
+
   })
- 
+
 </script>
 
 @endsection
