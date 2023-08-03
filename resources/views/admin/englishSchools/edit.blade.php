@@ -22,18 +22,7 @@
               <input  name="name" type="text" class="form-control"  value="{{$englishSchool->name}}" placeholder="type your English School name">
               </div>
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label for="cc-payment" class="control-label mb-1">Duration:</label>
-              <input type="text" name="duration" id="" class="form-control"  value="{{$englishSchool->duration}}" placeholder="typing  Duration">
 
-              </div>
-
-          </div>
-
-               </div>
-
-        <div class="row">
           <div class="col-6">
             <div class="form-group">
               <label for="cc-payment" class="control-label mb-1">Countries:</label>
@@ -60,53 +49,7 @@
                </div>
 
 
-               <div class="row">
-                <div class="col-6">
-                  <div class="form-group">
-                    <label for="" class="control-label mb-1">Status:</label>
-                    <select name="status" id="" class="form-control">
-                      <option value=""  selected> Chose Status  </option>
-                      <option  @if($englishSchool->status == 'hold') selected @endif   value="Hold"> Hold  </option>
-                      <option  @if($englishSchool->status == 'Applied') selected @endif  value="Applied"> Applied </option>
-                      <option @if($englishSchool->status == 'offer') selected @endif  value="offer">  offer</option>
-                      <option @if($englishSchool->status == 'deferred') selected @endif  value="deferred">  deferred</option>
 
-                      <option @if($englishSchool->status == 'Confirmed') selected @endif  value="Confirmed"> Confirmed</option>
-                      <option @if($englishSchool->status == 'Rejected') selected @endif  value="Rejected"> Rejected</option>
-                      <option @if($englishSchool->status == 'Withdrawn') selected @endif  value="Withdrawn"> Withdrawn</option>
-
-                    </select>
-                    </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">Note :</label>
-                <textarea name="note" id="" class="form-control"   cols="10" rows="2" >
-                  {{$englishSchool->text_note}}
-                </textarea>
-                    </div>
-
-                </div>
-
-                     </div>
-
-                     <div class="row">
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label for="cc-payment" class="control-label mb-1">Start Date :</label>
-                      <input type="date" name="start_date" id="" class="form-control"  value="{{$englishSchool->start_date}}" >
-                          </div>
-
-                      </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label for="cc-payment" class="control-label mb-1">End  Date :</label>
-                      <input type="date" name="end_date" id="" class="form-control"  value="{{$englishSchool->end_date}}" >
-                          </div>
-
-                      </div>
-                     </div>
 
 
 

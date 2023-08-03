@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\EnglishSchoolRequests;
+use App\Models\CoursesEnglishSchool;
+use App\Models\CoursesUniversity;
 use Illuminate\Http\Request;
 use App\EnglishSchool;
 use App\SalesMan;
@@ -120,8 +122,9 @@ class EnglishSchoolRequestsController extends Controller
         $agencies = Agency::get();
         $students = Student::get();
         $markters = Markter::get();
+        $courses= CoursesEnglishSchool::get();
         $useVue = true;
-        return view('admin.englishSchoolRequests.create',compact("salsmens",'EnglishSchools','agencies','students','useVue','markters'));
+        return view('admin.englishSchoolRequests.create',compact('courses',"salsmens",'EnglishSchools','agencies','students','useVue','markters'));
     }
 
     /**
@@ -149,7 +152,7 @@ class EnglishSchoolRequestsController extends Controller
                 'start_date'=>$request->start_date[$x] ,
                 'end_date'=>$request->end_date[$x] ,
                 'fees'=>$request->fees[$x] ,
-                'course'=>$request->course[$x] ,
+                'course_id'=>$request->course_id[$x] ,
                 'duration'=>$request->duration[$x] ,
                 'residence'=>$request->Residence[$x] ,
                 'creator'=>auth()->user()->name,
@@ -245,8 +248,10 @@ class EnglishSchoolRequestsController extends Controller
         $agencies = Agency::get();
        $students = Student::get();
        $markters = Markter::get();
+        $courses= CoursesEnglishSchool::get();
 
-    return view('admin.englishSchoolRequests.edit',compact("salsmens",'EnglishSchools','agencies','students','englishSchoolRequests','student_media','markters'));
+
+        return view('admin.englishSchoolRequests.edit',compact('courses',"salsmens",'EnglishSchools','agencies','students','englishSchoolRequests','student_media','markters'));
     }
 
     /**
@@ -271,7 +276,7 @@ class EnglishSchoolRequestsController extends Controller
         $EnglishSchoolRequests->text_note=$request->note_course;
         $EnglishSchoolRequests->status=$request->status;
         $EnglishSchoolRequests->fees=$request->fees;
-        $EnglishSchoolRequests->course=$request->course;
+        $EnglishSchoolRequests->course_id=$request->course_id;
         $EnglishSchoolRequests->save();
 
         $employeeBonusCheck  = new PerformanceController();

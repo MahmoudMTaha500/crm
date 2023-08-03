@@ -242,7 +242,7 @@
                                     <th>City</th>
                                     <th>University</th>
                                     <th>Agency</th>
-                                    <th>Kind Of Course</th>
+                                    <th> Course</th>
                                     <th>Status</th>
                                     <th>Start Date </th>
                                     <th>Note </th>
@@ -270,7 +270,7 @@
 
                                     <td>{{$request->university->name}}</td>
                                     <td>{{$request->agency->name}}</td>
-                                    <td>{{$request->kind_of_course}}</td>
+                                    <td>{{$request->course->name}}</td>
                                     <td>{{$request->status}}</td>
                                     <td>{{$request->start_date}}</td>
                                     <td>{{$request->text_note}}</td>

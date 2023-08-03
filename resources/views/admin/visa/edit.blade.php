@@ -168,7 +168,22 @@
                           </select>
                           </div>
                       </div>
-                      <div class="col-6">
+                         <div class="col-6">
+                             <div class="form-group">
+                                 <label for="" class="control-label mb-1"> Filed By:</label>
+                                 <select class="form-control "  name="filed_by" id="" value="{{old('filed_by')}}">
+                                     <option value=""> None</option>
+                                     @foreach($employees as $employee)
+                                         <option value="{{$employee->id}}">  {{$employee->name}}</option>
+
+                                     @endforeach
+
+
+
+                                 </select>
+                             </div>
+                         </div>
+                      <div class="col-12">
                         <div class="form-group">
                           <label for="" class="control-label mb-1"> Other:</label>
                                <textarea class="form-control" name="other" id="" cols="10" rows="3">{{$visa->other}}</textarea>
@@ -262,6 +277,20 @@ function Elements(){
  $(document).on('click' , ".remove_ele",function(){
     $(this).parent().parent().parent().remove();
  });
+
+checkFees();
+
+$("#paid").click(function (){
+    checkFees();
+});
+
+function checkFees(){
+    if($("#paid").is(":checked")){
+        $("#fees").removeAttr('disabled')
+    } else{
+        $("#fees").attr('disabled','disabled')
+    }
+}
 
 </script>
 

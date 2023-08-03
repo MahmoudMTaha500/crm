@@ -18,27 +18,8 @@
             <label for="cc-payment" class="control-label mb-1" > Visa Name:</label>
             <input  name="name" type="text" class="form-control"  required value="" placeholder=" name">
 
-            </div>  
-            <div class="form-group">
-                <label for="cc-payment" class="control-label mb-1">Countries:</label>
-                <select name="country_id" id="country_id"  class="form-control">
-                <option value=""> Chosse Country </option>
-
-                @foreach($countries as $country)
-                <option  value="{{$country->id}}">{{$country->name}}</option>               
-                @endforeach
-                </select>
             </div>
-            
-            <div class="form-group">
-                <label for="" class="control-label mb-1">Visa Type </label>
-                <select class="form-control" name="type" id="">
-                    <option value="">please Choose Type</option>
-                    <option value="UK">UK</option>
-                    <option value="USA">USA</option>
-                    <option value="Tourist">Tourist</option>
-                </select>
-                </div>
+
 
 
     <div>

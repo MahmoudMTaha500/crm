@@ -90,14 +90,12 @@
             </div>
             <div class="col-3">
                 <div class="form-group">
-                    <label for="" class="control-label mb-1"> Kind Of Course :</label>
-                    <select class="form-control" style="border: 1px #888 solid;" name="kind_of_course" id="course_id">
+                    <label for="" class="control-label mb-1">  Course :</label>
+                    <select class="form-control" style="border: 1px #888 solid;" name="course_id" id="course_id">
                         <option value="">Please Choose Place</option>
-                        <option @if($universityRequests->kind_of_course== "Degree")  selected @endif value="Degree">Degree</option>
-                        <option  @if($universityRequests->kind_of_course== "Pathway")  selected @endif value="Pathway">Pathway</option>
-                        <option  @if($universityRequests->kind_of_course== "Pre-sessional")  selected @endif value="Pre-sessional">Pre-sessional</option>
-                        <option  @if($universityRequests->kind_of_course== "Other")  selected @endif value="Other">Other</option>
-                    </select>
+                        @foreach($courses as  $course)
+                            <option   @if($course->id== $universityRequests->course_id)  selected @endif value="{{$course->id}}">{{$course->name}}</option>
+                        @endforeach   </select>
                 </div>
             </div>
             <div class="col-3">

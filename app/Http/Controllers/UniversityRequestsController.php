@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\CoursesUniversity;
 use App\universityRequests;
 use Illuminate\Http\Request;
 use App\University;
@@ -162,8 +163,9 @@ class UniversityRequestsController extends Controller
         $agencies = Agency::get();
        $students = Student::get();
        $markters = Markter::get();
+       $courses = CoursesUniversity::get();
 $useVue=true;
-    return view('admin.universityRequests.create',compact("salsmens",'universities','agencies','students','useVue','markters'));
+    return view('admin.universityRequests.create',compact('courses',"salsmens",'universities','agencies','students','useVue','markters'));
     }
 
     /**
@@ -187,7 +189,7 @@ $useVue=true;
                 'text_note'=>$request->note_course[$x] ,
                 'start_date'=>$request->start_date[$x] ,
                 'fees'=>$request->fees[$x] ,
-                'kind_of_course'=>$request->kind_of_course[$x] ,
+                'course_id'=>$request->course_id[$x] ,
                 'creator'=>auth()->user()->name,
             ]);
 
@@ -285,8 +287,9 @@ $useVue=true;
         $agencies = Agency::get();
        $students = Student::get();
        $markters = Markter::get();
+       $courses=CoursesUniversity::get();
 
-    return view('admin.universityRequests.edit',compact("salsmens",'universities','agencies','students','universityRequests','student_media','markters'));
+    return view('admin.universityRequests.edit',compact('courses',"salsmens",'universities','agencies','students','universityRequests','student_media','markters'));
 
     }
 
@@ -311,7 +314,7 @@ $useVue=true;
         $universityRequests->text_note=$request->note_course;
         $universityRequests->status=$request->status;
         $universityRequests->fees=$request->fees;
-        $universityRequests->kind_of_course=$request->kind_of_course;
+        $universityRequests->course_id=$request->course_id;
         $universityRequests->manual_id=$request->manual_id;
         $universityRequests->save();
 

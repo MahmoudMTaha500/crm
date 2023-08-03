@@ -9,8 +9,7 @@
                                 <tr>
                                     <th>#ID</th>
                                     <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Country</th>
+
                                     <th>Creator</th>
                                     <th class="text-right">Control</th>
                                 </tr>
@@ -20,8 +19,7 @@
                                 <tr>
                                     <td>{{$visa->id}}</td>
                                     <td>{{$visa->name}}</td>
-                                    <td>{{$visa->type}}</td>
-                                    <td>{{$visa->country->name}}</td>
+
 
                                     <td>{{$visa->creator}}</td>
 

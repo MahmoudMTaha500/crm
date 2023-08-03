@@ -29,6 +29,7 @@ import englishSchoolRequestComponent from "./components/englishSchoolRequest/eng
 
 import englishSchoolRowComponent from "./components/englishSchoolRequest/englishSchoolRowComponent.vue";
 import VSelect from '@alfsnd/vue-bootstrap-select'
+import StudentComponent from "./components/student/StudentComponent.vue";
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -44,7 +45,8 @@ const app = new Vue({
         VSelect,
         universityRowComponent,
         englishSchoolRowComponent,
-        englishSchoolRequestComponent
+        englishSchoolRequestComponent,
+        StudentComponent
 
 
     }

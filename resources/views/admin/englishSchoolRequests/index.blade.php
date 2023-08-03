@@ -268,7 +268,7 @@
                                     <td>{{$request->englishschool->city->name}}</td>
 
                                     <td>{{$request->englishschool->name}}</td>
-                                    <td>{{$request->course}}</td>
+                                    <td>{{$request->course->name}}</td>
                                     <td>{{$request->status}}</td>
                                     <td>{{$request->start_date}}</td>
                                     <td>{{$request->end_date}}</td>
@@ -277,13 +277,8 @@
                                     <td>{{$request->text_note}}</td>
                                     <td>{{$request->salesman->name}}</td>
                                     <td>{{$request->markter->name ??  "---" }}</td>
-
                                     <td>{{$request->creator}}</td>
-
-
-
                                     <td>{{$request->created_at}}</td>
-
                                   <td>
                                     <div class="table-data-feature">
 

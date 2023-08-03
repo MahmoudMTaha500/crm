@@ -65,22 +65,41 @@
                 @endif
                 @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestuniversity')  )
 
-                <li class=" @if(Route::is('university.*') )  active @endif has-sub">
+                <li class=" @if(Route::is('course-university.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
-                        <i class="fas fa-university"></i>Universities </a>
+                        <i class="fas fa-university"></i>Courses Universities </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li class=" @if(Route::is('university.index') )  active @endif ">
-                            <a href="{{route('university.index')}}"> All Universities</a>
+                        <li class=" @if(Route::is('course-university.index') )  active @endif ">
+                            <a href="{{route('course-university.index')}}"> All Courses Universities</a>
                         </li>
                         @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-requestuniversity') )
 
-                        <li class=" @if(Route::is('university.create') )  active @endif ">
-                            <a href="{{route('university.create')}}">Add University</a>
+                        <li class=" @if(Route::is('course-university.create') )  active @endif ">
+                            <a href="{{route('course-university.create')}}">Add Course University</a>
                         </li>
                         @endif
 
                     </ul>
                 </li>
+                @endif
+                @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestuniversity')  )
+
+                    <li class=" @if(Route::is('university.*') )  active @endif has-sub">
+                        <a class="js-arrow  " href="#">
+                            <i class="fas fa-university"></i>Universities </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class=" @if(Route::is('university.index') )  active @endif ">
+                                <a href="{{route('university.index')}}"> All Universities</a>
+                            </li>
+                            @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-requestuniversity') )
+
+                                <li class=" @if(Route::is('university.create') )  active @endif ">
+                                    <a href="{{route('university.create')}}">Add University</a>
+                                </li>
+                            @endif
+
+                        </ul>
+                    </li>
                 @endif
                 @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestenglishschool')  )
 
@@ -143,23 +162,43 @@
                 @endif
                 @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestenglishschool')  )
 
-                <li class=" @if(Route::is('english-school-request.*') )  active @endif has-sub">
+                <li class=" @if(Route::is('course-english-school.*') )  active @endif has-sub">
                     <a class="js-arrow  " href="#">
-                        <i class="fas  fa-paper-plane "></i>English School Requests</a>
+                        <i class="fas  fa-paper-plane "></i> Courses English School </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li class=" @if(Route::is('english-school-request.index') )  active @endif ">
-                            <a href="{{route('english-school-request.index')}}"> All English Schools Requests</a>
+                        <li class=" @if(Route::is('course-english-school.index') )  active @endif ">
+                            <a href="{{route('course-english-school.index')}}"> All Courses English Schools </a>
                         </li>
                         @if(  auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-requestenglishschool') )
 
-                        <li class=" @if(Route::is('english-school-request.create') )  active @endif ">
-                            <a href="{{route('english-school-request.create')}}">Add English School Request</a>
+                        <li class=" @if(Route::is('course-english-school.create') )  active @endif ">
+                            <a href="{{route('course-english-school.create')}}">Add Course English School </a>
                         </li>
                         @endif
 
 
                     </ul>
                 </li>
+                @endif
+                @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-requestenglishschool')  )
+
+                    <li class=" @if(Route::is('english-school-request.*') )  active @endif has-sub">
+                        <a class="js-arrow  " href="#">
+                            <i class="fas  fa-paper-plane "></i>English School Requests</a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class=" @if(Route::is('english-school-request.index') )  active @endif ">
+                                <a href="{{route('english-school-request.index')}}"> All English Schools Requests</a>
+                            </li>
+                            @if(  auth()->user()->hasRole('admin') || auth()->user()->hasPermission('create-requestenglishschool') )
+
+                                <li class=" @if(Route::is('english-school-request.create') )  active @endif ">
+                                    <a href="{{route('english-school-request.create')}}">Add English School Request</a>
+                                </li>
+                            @endif
+
+
+                        </ul>
+                    </li>
                 @endif
                 @if( auth()->user()->hasRole('admin') || auth()->user()->hasPermission('show-agency')  )
 

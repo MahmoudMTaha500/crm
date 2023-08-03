@@ -31,4 +31,7 @@ class EnglishSchoolRequests extends Model
          return  $this->hasMany('App\EnglishSchoolFinance','request_id','id');
 
      }
+     public function course(){
+        return $this->belongsTo('App\Models\CoursesEnglishSchool','course_id','id');
+     }
 }

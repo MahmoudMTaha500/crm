@@ -16,7 +16,7 @@ class CreateEnglishSchoolRequestsTable extends Migration
         Schema::create('english_school_requests', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+//            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->bigInteger('englishSchool_id')->unsinged();
             // $table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');
 
@@ -26,17 +26,13 @@ class CreateEnglishSchoolRequestsTable extends Migration
 
             $table->string('status')->nullable();
             $table->string('text_note')->nullable();
-            $table->string('course')->nullable();
+            $table->integer('course_id')->nullable();
             $table->string('duration')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
             $table->string('residence')->nullable();
             $table->string('fees')->nullable();
             $table->integer('markter_id')->nullable();
-
-//            $table->string('manual_id')->nullable();
-
-
             $table->string('creator');
             $table->timestamps();
         });

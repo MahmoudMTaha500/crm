@@ -52,13 +52,10 @@
                 </div>
                 <div class="col-2">
                     <div class="form-group">
-                        <label for="" class="control-label mb-1"> Kind Of Course :</label>
-                        <select class="form-control" style="border: 1px #888 solid;" name="kind_of_course[]" id="course_id">
+                        <label for="" class="control-label mb-1">  Courses :</label>
+                        <select class="form-control" style="border: 1px #888 solid;" name="course_id[]" id="course_id">
                             <option value="">Please Choose Place</option>
-                            <option value="Degree">Degree</option>
-                            <option value="Pathway">Pathway</option>
-                            <option value="Pre-sessional">Pre-sessional</option>
-                            <option value="Other">Other</option>
+                            <option v-for="course in this.courses" :key="course.id" :value="course.id">{{course.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -97,7 +94,7 @@
         components: {
             Multiselect,
         },
-        props: ["uni_route", "agency_route",'route_get_agency'],
+        props: ["uni_route", "agency_route",'route_get_agency','courses'],
         data() {
             return {
                 universities: {},
@@ -114,6 +111,7 @@
                 isLoading:false,
                 fees:"",
                 status_:"",
+                courses:this.courses,
             };
         },
         mounted: function () {

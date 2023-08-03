@@ -14,22 +14,23 @@
       @include('admin.includes.errors')
 
         @csrf
-       
-        
-                   
 
-                   
- 
+
+
+
+
+
             <english-school-request-component
             :universities="{{json_encode( $EnglishSchools )}}"
             :agencies="{{json_encode( $agencies )}}"
+            :courses="{{json_encode( $courses )}}"
             :english_school_route="{{json_encode(url('english-school-request/get-english-school'))}}"
             :agency_route="{{json_encode(url('english-school-request/get-agency') )}}"
             :students_route="{{json_encode(url('university-request/get-students') )}}"
             :route_get_agency="{{json_encode(url('university-request/get-agency-uni') )}}"
             > </english-school-request-component>
             {{-- <example-component
-           
+
             > </example-component> --}}
 
 
@@ -45,23 +46,23 @@
                         <div class="form-group">
                           <label for="cc-payment" class="control-label mb-1">File:</label>
                           <input  name="file[]" type="file" class="form-control" required  value="">
-                       
-                          </div> 
+
+                          </div>
                         </div>
 
                           <div class="col-1">
                             <div class="form-group">
-                              <button type="button" id="add_ele" class="   btn btn-primary" style="margin-top: 30px;"><i class="fa fa-plus"></i></button>                         
-                              </div> 
-             
+                              <button type="button" id="add_ele" class="   btn btn-primary" style="margin-top: 30px;"><i class="fa fa-plus"></i></button>
                               </div>
-                   
+
+                              </div>
+
                           </div>
 
-                      
+
 
                       <div class="row">
-                          
+
                               <div class="col-6">
                                 <div class="form-group">
                                 <label for="cc-payment" class="control-label mb-1">ٍSalesMen :</label>
@@ -74,7 +75,7 @@
 
                                 </select>
 
-                                </div> 
+                                </div>
 
                               </div>
                               <div class="col-4">
@@ -90,23 +91,23 @@
 
                                 </select>
 
-                                </div> 
+                                </div>
 
                               </div>
                               {{-- <div class="col-5"></div> --}}
 
-                          
+
 
 
                       </div>
-                    
 
 
 
-            
-        
-            
-           
+
+
+
+
+
 
 
     <div>
@@ -123,15 +124,15 @@
     </div>
 @endsection
 @section('admin.scripts')
-  
+
 
 
 
 
 <script>
 function Elements(){
-   
-                              
+
+
 }
  $('#add_ele').click(function(){
   var html = ' <div class="row remve_ele"> <div class="col-6"><div class="form-group"> <label for="" class="control-label mb-1"> Name Of File:</label> <input  name="name_of_file[]" type="text" class="form-control" required   value="" placeholder="type your File">  </div>';
@@ -141,10 +142,10 @@ function Elements(){
        $('#row_file').after(html);
 
  });
- $(document).on('click' , ".remove_ele",function(){ 
+ $(document).on('click' , ".remove_ele",function(){
     $(this).parent().parent().parent().remove();
  });
- 
+
 
  $('.selectpicker').selectpicker();
 

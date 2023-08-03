@@ -16,45 +16,21 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{route('english-school.index')}}" method="GET">
+                            <form action="{{route('country.index')}}" method="GET">
                              @csrf
                             <input type="hidden" name="filter" value="1">
 
                             <div class="modal-body">
+
                                 <div class="row">
                                     <div class="col-12">
                                       <div class="form-group">
-                                        <label for="" class="control-label mb-1"> Country:</label>
-                                        <select name="country_id" id="country_id"  class="form-control">
-                                            <option value=""> Chosse Country </option>
-
-                                                @foreach($countries as $country)
-                                                  <option  value="{{$country->id}}">{{$country->name}}</option>
-                                                @endforeach
+                                        <label for="" class="control-label mb-1"> Country name:</label>
+                                       <input type="text" class="form-control" name="name">
                                           </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                      <div class="form-group">
-                                        <label for="" class="control-label mb-1"> City:</label>
-                                        <select name="city_id" id="city_id" class="form-control">
-                                            <option value=""> Chosse City </option>
-
-                                          </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                      <div class="form-group">
-                                        <label for="" class="control-label mb-1"> Name:</label>
-                                      <input   class="form-control" type="text" name="name" placeholder="Type Name Of Place ">
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -75,47 +51,39 @@
 
                 </div>
             <div class="row">
+
+
                 <div class="col-lg-12">
                     <div class="table-responsive table--no-card m-b-30">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
                                     <th>#ID</th>
-
-                                    <th>Name</th>
-                                    <th>Country</th>
-                                    <th>City</th>
+                                    <th>name</th>
                                     <th>Creator</th>
-
-
                                     <th class="text-right">Control</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($EnglishSchool as $place)
+                                @foreach($courses as $course)
                                 <tr>
-                                    <td>{{$place->id}}</td>
-                                    <td>{{$place->name}}</td>
-                                    <td>{{$place->country->name}}</td>
-                                    <td>{{$place->city->name}}</td>
-
-                                    <td>{{$place->creator}}</td>
-
-
+                                    <td>{{$course->id}}</td>
+                                    <td>{{$course->name}}</td>
+                                    <td>{{$course->creator}}</td>
 
                                   <td>
                                     <div class="table-data-feature">
 
-                                        <a href="{{route('english-school.edit',$place->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <a href="{{route('course-university.edit',$course->id)}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </a>
-                                        <form action="{{route('english-school.destroy', $place->id)}}" method="POST">
+                                        <form action="{{route('course-university.destroy', $course->id)}}" method="POST">
                                             @csrf
                                             @method('delete')
 
 
                                         <button href="" class="item" data-toggle="tooltip" data-placement="top" title="Delete"
-                                        onclick="return confirm('Are u Sure For Delete This place')"
+                                        onclick="return confirm('Are u Sure For Delete This agency')"
                                         >
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
@@ -131,46 +99,8 @@
                         </table>
                     </div>
                 </div>
-                {{$EnglishSchool->appends(request()->input())->links('pagination::bootstrap-4')}}
+                {{$courses->appends(request()->input())->links('pagination::bootstrap-4')}}
 
             </div>
-
-@endsection
-
-@section('admin.scripts')
-
-<script>
-
-  $("#country_id").change(function(){
-    var country_id =$(this).val();
-  // alert(country_id );
-//   if(country_id== ''){
-
-//   } else {
-    var  route = "{{url('/place/getcities') }}";
-    $.ajax(route,   // request url
-    {
-      type: 'GET',  // http method
-    data: { "country_id": country_id },
-        success: function (data, status, xhr) {// success callback function
-            $('#city_id').html(data.html_city);
-            $('#university_id').html(data.html_university);
-            $('#institute_id').html(data.html_institute);
-    }
-});
-//   }
-
-  });
-
-  $('#from_date').change(function(){
-        // alert(1111);
-        // alert();
-        if($(this).val()){
-            alert(11);
-$('#to_date').removeAttr('disabled');
-  }
-  });
-
-</script>
 
 @endsection

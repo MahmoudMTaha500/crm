@@ -35,9 +35,7 @@ class EnglishSchoolController extends Controller
                 $EnglishSchool = $EnglishSchool->where('city_id',$city_id);
 
                 }
-                if($request->type){
-                    $EnglishSchool =  $EnglishSchool->where('type_id',$request->type);
-                }
+
 
 
                 if($request->name){
@@ -83,12 +81,8 @@ class EnglishSchoolController extends Controller
             "name" => $request->name,
             "country_id" => $request->country_id,
             "city_id" => $request->city_id,
-            "status" =>$request->status,
-            "text_note" =>$request->note,
             "creator" =>auth()->user()->name,
-            "duration" =>$request->duration,
-            "start_date" =>$request->start_date,
-            "end_date" =>$request->end_date,
+
         ]);
         Alert::success('Add Operation','Add New English School');
         return redirect()->route('english-school.index');
@@ -130,13 +124,8 @@ class EnglishSchoolController extends Controller
     public function update(Request $request, EnglishSchool $englishSchool)
     {
         $englishSchool->name = $request->name;
-        $englishSchool->duration = $request->duration;
         $englishSchool->country_id = $request->country_id;
         $englishSchool->city_id = $request->city_id;
-        $englishSchool->status = $request->status;
-        $englishSchool->text_note = $request->note;
-        $englishSchool->start_date = $request->start_date;
-        $englishSchool->end_date = $request->end_date;
         $englishSchool->creator = auth()->user()->name;
         $englishSchool->save();
         Alert::success('Edit Operation','English School Has Been Updeted');
