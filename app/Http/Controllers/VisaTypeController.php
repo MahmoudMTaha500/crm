@@ -46,13 +46,10 @@ class VisaTypeController extends Controller
         $request->validate([
 
             'name' => 'required',
-            'type' => 'required'
         ]);
         // dd($request->all());
         VisaType::create([
             "name" =>$request->name,
-            "country_id" =>$request->country_id,
-            "type" =>$request->type,
             "creator" =>auth()->user()->name,
 
 
@@ -98,8 +95,6 @@ class VisaTypeController extends Controller
     {
         // dd($visaType);
         $visaType->name = $request->name;
-        $visaType->type = $request->type;
-        $visaType->country_id = $request->country_id;
 
         $visaType->save();
         Alert::success('Update  Opration','Visa Type  Updated Succssfully');

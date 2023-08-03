@@ -26,7 +26,7 @@ class CreateUniversityRequestsTable extends Migration
 
             $table->string('status')->nullable();
             $table->string('text_note')->nullable();
-            $table->string('kind_of_course')->nullable();
+            $table->integer('course_id')->nullable();
             $table->string('start_date')->nullable();
             $table->string('fees')->nullable();
             $table->integer('markter_id')->nullable();

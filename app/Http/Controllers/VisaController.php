@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Visa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -102,7 +103,9 @@ class VisaController extends Controller
         $types =VisaType::get();
         $salsmens =SalesMan::get();
         $banks =Bank::get();
-        return view('admin.visa.create',compact('students','countries','types','salsmens','banks') );
+        $useVue = true;
+ $employees = User::whereIn('department',['admission-university','admission-english-school'])->get();
+        return view('admin.visa.create',compact('employees','useVue','students','countries','types','salsmens','banks') );
 
     }
 
@@ -127,6 +130,7 @@ class VisaController extends Controller
             "payment" => $request->payment,
             "status" => $request->status,
             "paid" => $request->paid,
+            "filed_by" => $request->filed_by,
             'creator'=>auth()->user()->name,
         ]);
         if($request->status =="Applied"){
@@ -191,7 +195,11 @@ class VisaController extends Controller
         $types =VisaType::get();
         $salsmens =SalesMan::get();
         $banks =Bank::get();
-        return view('admin.visa.edit',compact('visa','student_media','student','students','countries','types','salsmens','banks'));
+        $useVue = true;
+        $employees = User::whereIn('department',['admission-university','admission-english-school'])->get();
+
+
+        return view('admin.visa.edit',compact('employees','useVue','visa','student_media','student','students','countries','types','salsmens','banks'));
 
     }
 
@@ -214,6 +222,7 @@ class VisaController extends Controller
         $visa->status = $request->status;
         $visa->paid = $request->paid;
         $visa->other = $request->other;
+        $visa->filed_by = $request->filed_by;
         $visa->creator =auth()->user()->name;
         $visa->save();
         if($request->file){

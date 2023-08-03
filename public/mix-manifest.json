@@ -1,10 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-
-    "web_accessible_resources": [
-        "media/webFonts/opensans/opensanslight.woff2"
-    ]
-
+    "/css/app.css": "/css/app.css"
 }
-

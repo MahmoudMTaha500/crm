@@ -8,7 +8,7 @@
                     <multiselect v-model="student_seleceted" :options="students"  name='student' placeholder="Select student" label="name" track-by="name"> </multiselect>
                     <input type="hidden"  name="student" :value="student_seleceted.id" >
 
-                        </div>  
+                        </div>
                       </div>
                     </div>
         <section v-for="count in totalCount" :key="count">
@@ -17,24 +17,25 @@
 :uni_route="uni_route"
 :agency_route="agency_route"
 :route_get_agency="route_get_agency"
+:courses="courses"
 
 ></university-row-component>
                 <!-- <div class="col-1">
                     <div class="form-group"> -->
-                        <button type="button"  @click="duplicateEl();addFind()" class="btn btn-primary" style="margin-top: 30px; 
+                        <button type="button"  @click="duplicateEl();addFind()" class="btn btn-primary" style="margin-top: 30px;
                         position: absolute;left: 93.5%;top: 53%;"><i class="fa fa-plus"></i></button>
 
-                       
-                        
-                        <button type="button"  @click="removeElement(x)" class="btn btn-primary" style="margin-top: 30px; 
+
+
+                        <button type="button"  @click="removeElement(x)" class="btn btn-primary" style="margin-top: 30px;
                         position: absolute;left: 96.5%;top: 53%;"><i class="fa fa-trash"></i></button>
-                        
+
                     <!-- </div> -->
                     <!-- <div v-else-if="totalCount == 1" class="form-group">
                         <button type="button"  @click="removeElement" class="btn btn-primary" style="margin-top: 30px;"><i class="fa fa-trash"></i></button>
                     </div> -->
                 <!-- </div> -->
-          
+
 
             <!-- <Contents v-for="count in totalCount" :key="`component-${count}`" /> -->
         </section>
@@ -49,7 +50,7 @@
             Multiselect,
             universityRowComponent
         },
-        props: ["uni_route", "agency_route",'students_route','route_get_agency'],
+        props: ["uni_route", "agency_route",'students_route','route_get_agency','courses'],
         data() {
             return {
                 universities: {},
@@ -87,7 +88,7 @@
             changeSelect(value, id) {
                 this.id = value.id;
                 this.uni_seleceted = value.name+this.totalCount;
-                
+
             },
             changeSelect_agency(value, id) {
                 this.id = value.id;
@@ -109,8 +110,8 @@
                   //don't proceed
                 }
              }
-             
-               
+
+
             },
             addFind: function () {
       this.value.push({ count: '' });

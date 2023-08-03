@@ -79,26 +79,12 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <label for="" class="control-label mb-1"> Course :</label>
-                        <select class="form-control" style="border: 1px #888 solid;" name="course" id="course_id">
+                        <label for="" class="control-label mb-1">  Course :</label>
+                        <select class="form-control" style="border: 1px #888 solid;" name="course_id" id="course_id">
                             <option value="">Please Choose Place</option>
-                            <option @if($englishSchoolRequests->course== "General Or intensive English Courses")  selected @endif  value="General Or intensive English Courses">General Or intensive English Courses</option>
-                            <option @if($englishSchoolRequests->course== "Cambridge English Exam Courses")  selected @endif value="Cambridge English Exam Courses">Cambridge English Exam Courses</option>
-                            <option @if($englishSchoolRequests->course== "IELTS English Exam Courses")  selected @endif value="IELTS English Exam Courses">IELTS English Exam Courses</option>
-                            <option @if($englishSchoolRequests->course== "CELTA Introductory Course")  selected @endif value="CELTA Introductory Course">CELTA Introductory Course</option>
-                            <option @if($englishSchoolRequests->course== "Foreign Teachers of English (FTE)")  selected @endif value="Foreign Teachers of English (FTE)">Foreign Teachers of English (FTE)</option>
-                            <option @if($englishSchoolRequests->course== "English for Special Purposes")  selected @endif value="English for Special Purposes">English for Special Purposes</option>
-                            <option @if($englishSchoolRequests->course== "One-to-One course")  selected @endif value="One-to-One course">One-to-One course</option>
-                            <option @if($englishSchoolRequests->course== "Business English Courses")  selected @endif value="Business English Courses">Business English Courses</option>
-                            <option @if($englishSchoolRequests->course== "Occupational English Test (OET)")  selected @endif value="Occupational English Test (OET)">Occupational English Test (OET)</option>
-                            <option @if($englishSchoolRequests->course== "Conversation Classes")  selected @endif value="Conversation Classes">Conversation Classes</option>
-                            <option @if($englishSchoolRequests->course== "Family Vacation courses")  selected @endif value="Family Vacation courses">Family Vacation courses</option>
-                            <option @if($englishSchoolRequests->course== "Junior English courses")  selected @endif value="Junior English courses">Junior English courses</option>
-                            <option @if($englishSchoolRequests->course== "Academic year courses")  selected @endif value="Academic year courses">Academic year courses</option>
-                            <option @if($englishSchoolRequests->course== "English + Communication Skills")  selected @endif value="English + Communication Skills">English + Communication Skills</option>
-                            <option @if($englishSchoolRequests->course== "Experiences Club +40")  selected @endif value="Experiences Club +40">Experiences Club +40</option>
-                            <option @if($englishSchoolRequests->course== "English & Culture +40")  selected @endif value="English & Culture +40">English & Culture +40</option>
-                        </select>
+                            @foreach($courses as  $course)
+                                <option   @if($course->id== $universityRequests->course_id)  selected @endif value="{{$course->id}}">{{$course->name}}</option>
+                            @endforeach   </select>
                     </div>
                 </div>
 

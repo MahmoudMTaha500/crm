@@ -25,11 +25,11 @@ class StudentsRequest extends FormRequest
     {
         return [
             "name"=>"required",
-            "email"=>"required",
+            "email"=>"required:unique",
             "phone"=>"required",
             "student_type"=>"required",
             "nationality"=>"required"
-         
+
         ];
     }
 
@@ -41,7 +41,7 @@ class StudentsRequest extends FormRequest
           'phone.required'=>"   Phone Is Required ",
           'student_type.required'=>"   Student Type Is Required",
           'nationality.required'=>"   Nationality Is Required",
-          
+
 
         ];
     }

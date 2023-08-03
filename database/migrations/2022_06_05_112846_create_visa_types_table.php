@@ -16,8 +16,7 @@ class CreateVisaTypesTable extends Migration
         Schema::create('visa_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type');
-            $table->integer('country_id');
+
             $table->string('creator');
             $table->timestamps();
         });

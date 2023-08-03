@@ -37,7 +37,8 @@ Route::group(['middleware' => ['auth' ,  'role:employee|admin' ]], function(){
 
     Route::get('report/english-school/download',[ReportController::class, "DownloadExcelSheetEnglishSchool"])->name('download-excel-english-school');
     Route::get('report/english-school/pdf',[ReportController::class, "convertToPdfEnglishSchool"])->name('download-pdf-english-school');
-
+    Route::resource('course-university',CoursesUniversityController::class);
+    Route::resource('course-english-school',CoursesEnglishSchoolController::class);
 });
 
     //  ////////////////////////////Start  admission/////////////////////////////////////////////

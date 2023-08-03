@@ -31,5 +31,8 @@ class universityRequests extends Model
             return  $this->hasMany('App\financeUniversity','request_id','id');
 
     }
+    public function course(){
+        return $this->belongsTo('App\Models\CoursesUniversity','course_id','id');
+    }
 
 }

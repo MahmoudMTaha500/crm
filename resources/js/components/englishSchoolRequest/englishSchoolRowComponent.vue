@@ -39,25 +39,10 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <label for="" class="control-label mb-1"> Course :</label>
-                        <select class="form-control" style="border: 1px #888 solid;" name="course[]" id="course_id">
+                        <label for="" class="control-label mb-1">  Courses :</label>
+                        <select class="form-control" style="border: 1px #888 solid;" name="course_id[]" id="course_id">
                             <option value="">Please Choose Place</option>
-                            <option value="General Or intensive English Courses">General Or intensive English Courses</option>
-                            <option value="Cambridge English Exam Courses">Cambridge English Exam Courses</option>
-                            <option value="IELTS English Exam Courses">IELTS English Exam Courses</option>
-                            <option value="CELTA Introductory Course">CELTA Introductory Course</option>
-                            <option value="Foreign Teachers of English (FTE)">Foreign Teachers of English (FTE)</option>
-                            <option value="English for Special Purposes">English for Special Purposes</option>
-                            <option value="One-to-One course">One-to-One course</option>
-                            <option value="Business English Courses">Business English Courses</option>
-                            <option value="Occupational English Test (OET)">Occupational English Test (OET)</option>
-                            <option value="Conversation Classes">Conversation Classes</option>
-                            <option value="Family Vacation courses">Family Vacation courses</option>
-                            <option value="Junior English courses">Junior English courses</option>
-                            <option value="Academic year courses">Academic year courses</option>
-                            <option value="English + Communication Skills">English + Communication Skills</option>
-                            <option value="Experiences Club +40">Experiences Club +40</option>
-                            <option value="English & Culture +40">English & Culture +40</option>
+                            <option v-for="course in this.courses" :key="course.id" :value="course.id">{{course.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -126,7 +111,7 @@
         components: {
             Multiselect,
         },
-        props: ["english_school_route", "agency_route",'route_get_agency'],
+        props: ["english_school_route", "agency_route",'route_get_agency','courses'],
         data() {
             return {
                 form:{
@@ -147,6 +132,7 @@
                 totalCount: 1,
                 agencyUni:{},
                 isLoading:false,
+                courses:this.courses
             };
         },
         mounted: function () {
