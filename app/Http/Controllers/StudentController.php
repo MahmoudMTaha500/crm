@@ -90,7 +90,11 @@ class StudentController extends Controller
     {
 
     //   dd($request->all());
-
+        $checkEmail = Student::where('email',$request->email)->get();
+       if(!$checkEmail->isEmpty()){
+           Alert::error('Duplication   Operation','Student Email Already exits ');
+           return redirect()->back();
+       }
         $student=  Student::create([
            'name'=>$request->name,
            'email'=>$request->email,

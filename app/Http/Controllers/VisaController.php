@@ -104,7 +104,7 @@ class VisaController extends Controller
         $salsmens =SalesMan::get();
         $banks =Bank::get();
         $useVue = true;
- $employees = User::whereIn('department',['admission-university','admission-english-school'])->get();
+ $employees = User::where('department','Visa')->get();
         return view('admin.visa.create',compact('employees','useVue','students','countries','types','salsmens','banks') );
 
     }
@@ -117,7 +117,7 @@ class VisaController extends Controller
      */
     public function store(Request $request)
     {
-       $visa =    Visa::create([
+        $visa =    Visa::create([
             'student_id'=>$request->student ,
             'date'=>$request->date ,
             'type_id'=>$request->type ,
@@ -134,18 +134,22 @@ class VisaController extends Controller
             'creator'=>auth()->user()->name,
         ]);
         if($request->status =="Applied"){
-             if($request->paid){
-                 $key="Paid";
+            if($request->paid){
+                $key="Paid";
 
-             } else {
-                 $key="Unpaid";
+            } else {
+                $key="Unpaid";
 
-             }
+            }
             $user_id = auth()->user()->id;
             $salesman = $request->salesman;
             $employeeBonus  = new PerformanceController();
             $employeeBonus->AddBounces($user_id,$key,$visa->id,'Visa');
             $employeeBonus->AddBounces($salesman,$key,$visa->id,'Visa');
+            if($request->filed_by){
+                $employeeBonus->AddBounces($request->filed_by,"Filed By",$visa->id,'Visa');
+
+            }
 
         }
         if($request->file){
@@ -245,6 +249,25 @@ class VisaController extends Controller
 
 
     }
+        if($request->status =="Applied"){
+            if($request->paid){
+                $key="Paid";
+
+            } else {
+                $key="Unpaid";
+
+            }
+            $user_id = auth()->user()->id;
+            $salesman = $request->salesman;
+            $employeeBonus  = new PerformanceController();
+            $employeeBonus->AddBounces($user_id,$key,$visa->id,'Visa');
+            $employeeBonus->AddBounces($salesman,$key,$visa->id,'Visa');
+            if($request->filed_by){
+                $employeeBonus->AddBounces($request->filed_by,"Filed By",$visa->id,'Visa');
+
+            }
+
+        }
 
         Alert::success('update  Opration','Visa Student Updated Succssfully');
         return redirect()->route('visa.index');
