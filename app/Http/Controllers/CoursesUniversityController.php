@@ -100,9 +100,11 @@ class CoursesUniversityController extends Controller
      * @param  \App\Models\CoursesUniversity  $coursesUniversity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CoursesUniversity $coursesUniversity)
+    public function destroy(CoursesUniversity $coursesUniversity,$id)
     {
         $this->CanDoAction('admin', 'delete-requestuniversity');
+        $coursesUniversity = CoursesUniversity::find($id);
+
         $coursesUniversity->delete();
         Alert::error('Delete Operation',' Course Deleted');
         return redirect()->route('course-university.index');

@@ -174,7 +174,7 @@
                                  <select class="form-control "  name="filed_by" id="" value="{{old('filed_by')}}">
                                      <option value=""> None</option>
                                      @foreach($employees as $employee)
-                                         <option value="{{$employee->id}}">  {{$employee->name}}</option>
+                                         <option @if($visa->filed_by==$employee->id) selected @endif value="{{$employee->id}}">  {{$employee->name}}</option>
 
                                      @endforeach
 
